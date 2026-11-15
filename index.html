@@ -2146,6 +2146,106 @@
         transform: none !important;
       }
     }
+
+    /* ==========================================================================
+       HIGH-FIDELITY PRINT & PDF EXPORT STYLES
+       ========================================================================== */
+    @media print {
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      body {
+        background-color: var(--chalk) !important;
+        padding-bottom: 0 !important;
+      }
+
+      .site-nav {
+        position: relative !important;
+        background-color: var(--ink) !important;
+        box-shadow: none !important;
+        padding: 1.25rem 0 !important;
+      }
+
+      .site-nav .brand-logo, .site-nav .nav-link {
+        color: var(--chalk) !important;
+      }
+
+      .hero-section {
+        min-height: 680px !important;
+        page-break-after: always;
+      }
+
+      .mobile-bottom-bar,
+      .menu-toggle,
+      .hero-scroll-indicator,
+      .mobile-overlay {
+        display: none !important;
+      }
+
+      .js .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        transition: none !important;
+      }
+
+      .dish-card,
+      .table-card,
+      .event-card,
+      .party-feature-card,
+      .review-card,
+      .location-card,
+      .reservation-box,
+      .party-enquiry-box {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .section-head {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .marquee-wrapper {
+        overflow: visible !important;
+      }
+
+      .marquee-track {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+        animation: none !important;
+        transform: none !important;
+      }
+
+      .marquee-wrapper::before,
+      .marquee-wrapper::after {
+        display: none !important;
+      }
+
+      /* Hide duplicate cards in print */
+      .marquee-track > .review-card[aria-hidden="true"] {
+        display: none !important;
+      }
+
+      .gallery-carousel {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1.5rem !important;
+        overflow: visible !important;
+      }
+
+      .gallery-slide {
+        flex: auto !important;
+        max-width: none !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -3713,6 +3813,19 @@
         yearSpan.textContent = new Date().getFullYear();
       }
     }
+
+    /* Print & PDF preparation handler */
+    window.addEventListener('beforeprint', () => {
+      document.querySelectorAll('.counter').forEach(counter => {
+        const target = parseFloat(counter.getAttribute('data-target'));
+        const isDecimal = counter.getAttribute('data-decimal') === '1';
+        const isComma = counter.getAttribute('data-format') === 'comma';
+        if (isDecimal) counter.textContent = target.toFixed(1);
+        else if (isComma) counter.textContent = target.toLocaleString('en-IN');
+        else counter.textContent = target;
+      });
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+    });
 
     /* Initialize Everything on DOM Load */
     document.addEventListener('DOMContentLoaded', () => {
