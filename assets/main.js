@@ -240,6 +240,58 @@
     mobileLinks.forEach(function (link) {
       link.addEventListener('click', closeMobileMenu);
     });
+
+    // Close button in mobile overlay header
+    var overlayCloseBtn = document.getElementById('mobile-overlay-close-btn');
+    if (overlayCloseBtn) {
+      overlayCloseBtn.addEventListener('click', closeMobileMenu);
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+   * 5b. MOBILE STICKY BOTTOM BAR OBSERVER & KEYBOARD HANDLER
+   * ----------------------------------------------------------------------- */
+  function initStickyBar() {
+    var bar = document.querySelector('.mobile-bottom-bar');
+    if (!bar) return;
+
+    var hero = document.getElementById('hero');
+    if (hero) {
+      bar.classList.add('bar-hidden');
+      if ('IntersectionObserver' in window) {
+        var heroObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              bar.classList.add('bar-hidden');
+            } else {
+              bar.classList.remove('bar-hidden');
+            }
+          });
+        }, { threshold: 0.1 });
+        heroObserver.observe(hero);
+      } else {
+        window.addEventListener('scroll', function () {
+          if (window.scrollY < (hero.offsetHeight - 80)) {
+            bar.classList.add('bar-hidden');
+          } else {
+            bar.classList.remove('bar-hidden');
+          }
+        }, { passive: true });
+      }
+    }
+
+    // Hide while any form input is focused (virtual keyboard is open)
+    document.addEventListener('focusin', function (e) {
+      if (e.target && e.target.matches && e.target.matches('input, select, textarea')) {
+        document.body.classList.add('keyboard-open');
+      }
+    });
+
+    document.addEventListener('focusout', function (e) {
+      if (e.target && e.target.matches && e.target.matches('input, select, textarea')) {
+        document.body.classList.remove('keyboard-open');
+      }
+    });
   }
 
   /* --------------------------------------------------------------------------
@@ -417,22 +469,37 @@
     events.forEach(function (evt) {
       var badgeClass = evt.isTonight ? 'event-badge event-badge--tonight' : 'event-badge';
       var badgeText = evt.isTonight ? '★ Tonight' : evt.tag;
+      var dowShort = evt.dayShort || (evt.dayName ? evt.dayName.substring(0, 3).toUpperCase() : 'SUN');
+      var dateNumVal = evt.dateNum || (evt.dateStr ? evt.dateStr.split('/')[0] : '15');
+      var monShort = evt.monthShort || 'NOV';
+      var screenDisplayDate = evt.displayDate || (evt.dayName.substring(0, 3) + ', ' + dateNumVal + ' ' + monShort);
 
-      html += '<article class="event-card reveal">' +
+      html += '<article class="event-card reveal' + (evt.isTonight ? ' event-card--tonight' : '') + '">' +
                 '<span class="' + badgeClass + '">' + badgeText + '</span>' +
-                '<div class="event-date-box">' +
-                  '<span class="event-day">' + evt.dayName + '</span>' +
-                  '<div class="event-calendar-date">' + evt.dateStr + '</div>' +
+                '<div class="event-card-inner">' +
+                  '<div class="event-date-block" aria-hidden="true">' +
+                    '<span class="event-dow">' + dowShort + '</span>' +
+                    '<span class="event-day-num">' + dateNumVal + '</span>' +
+                    '<span class="event-mon">' + monShort + '</span>' +
+                  '</div>' +
+                  '<div class="event-info-col">' +
+                    '<div class="event-heading-row">' +
+                      '<h3 class="event-title">' + evt.title + '</h3>' +
+                      (evt.isTonight ? '<span class="tonight-dot-badge"><span class="gold-dot"></span> Tonight</span>' : '') +
+                    '</div>' +
+                    '<p class="event-genre">' + evt.genre + '</p>' +
+                    '<div class="event-time-row">' +
+                      '<span class="event-display-date">' + screenDisplayDate + '</span>' +
+                      '<span class="event-time-sep">·</span>' +
+                      '<span class="event-time-val">' + evt.time + '</span>' +
+                    '</div>' +
+                  '</div>' +
                 '</div>' +
-                '<h3 class="event-title">' + evt.title + '</h3>' +
-                '<p class="event-genre">' + evt.genre + '</p>' +
-                '<div class="event-time">' +
-                  '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' +
-                  '<span>' + evt.time + '</span>' +
+                '<div class="event-cta-wrap">' +
+                  '<button type="button" class="btn btn-primary event-cta" onclick="openWhatsApp(\'live_night\', { eventName: \'' + evt.title.replace(/'/g, "\\'") + '\', dateStr: \'' + evt.dateStr + '\', time: \'' + evt.time + '\' }, \'Live Nights: ' + evt.title.replace(/'/g, "\\'") + '\')">' +
+                    'Reserve' +
+                  '</button>' +
                 '</div>' +
-                '<button type="button" class="btn btn-primary event-cta" onclick="openWhatsApp(\'live_night\', { eventName: \'' + evt.title.replace(/'/g, "\\'") + '\', dateStr: \'' + evt.formattedDate + '\', time: \'' + evt.time + '\' }, \'Live Nights: ' + evt.title.replace(/'/g, "\\'") + '\')">' +
-                  'Reserve for this night' +
-                '</button>' +
               '</article>';
     });
 
@@ -444,20 +511,48 @@
    * ----------------------------------------------------------------------- */
   function renderHeroChip() {
     var chip = document.getElementById('hero-event-chip');
-    if (!chip || typeof getTonightOrNextEvent !== 'function') return;
+    var singleChip = document.getElementById('hero-single-chip');
+    if (typeof getTonightOrNextEvent !== 'function') return;
 
     var evt = getTonightOrNextEvent();
-    if (evt && evt.text) {
+    if (!evt) return;
+
+    if (chip && evt.text) {
       chip.textContent = evt.text;
       chip.style.display = 'inline-flex';
+    }
+    if (singleChip && evt.mobileText) {
+      singleChip.textContent = evt.mobileText;
     }
   }
 
   /* --------------------------------------------------------------------------
    * 11. TABLE PRESELECTION & SCROLL (/reserve.html)
    * ----------------------------------------------------------------------- */
+  function syncTableChoiceChips(selectedVal) {
+    var chips = document.querySelectorAll('.table-choice-chip');
+    chips.forEach(function (chip) {
+      var chipVal = chip.getAttribute('data-table-val') || chip.getAttribute('data-table');
+      var isMatch = (chipVal === selectedVal) || (selectedVal === 'No preference' && chipVal === 'no-preference');
+      chip.classList.toggle('active', isMatch);
+      chip.setAttribute('aria-checked', isMatch ? 'true' : 'false');
+    });
+  }
+
   function initTableSelection() {
     var tableSelect = document.getElementById('book-table-type');
+    var chips = document.querySelectorAll('.table-choice-chip');
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var val = chip.getAttribute('data-table-val') || 'No preference';
+        if (tableSelect) {
+          tableSelect.value = val;
+        }
+        syncTableChoiceChips(val);
+      });
+    });
+
     if (!tableSelect) return;
 
     // Check URL params
@@ -467,11 +562,13 @@
     var paramMap = {
       'rooftop-corner': 'Rooftop Santorini Corner',
       'arch-booth': 'The Arch Booth',
-      'stage-side': 'Stage-Side Table'
+      'stage-side': 'Stage-Side Table',
+      'no-preference': 'No preference'
     };
 
     if (tableParam && paramMap[tableParam]) {
       tableSelect.value = paramMap[tableParam];
+      syncTableChoiceChips(paramMap[tableParam]);
       var formEl = document.getElementById('form');
       if (formEl) {
         setTimeout(function () {
@@ -486,11 +583,14 @@
     var paramMap = {
       'rooftop-corner': 'Rooftop Santorini Corner',
       'arch-booth': 'The Arch Booth',
-      'stage-side': 'Stage-Side Table'
+      'stage-side': 'Stage-Side Table',
+      'no-preference': 'No preference'
     };
-    if (tableSelect && paramMap[slug]) {
-      tableSelect.value = paramMap[slug];
+    var selectedName = paramMap[slug] || 'No preference';
+    if (tableSelect) {
+      tableSelect.value = selectedName;
     }
+    syncTableChoiceChips(selectedName);
     var formEl = document.getElementById('form');
     if (formEl) {
       formEl.scrollIntoView({ behavior: 'smooth' });
@@ -788,6 +888,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initGA4();
     initNav();
+    initStickyBar();
     initReveal();
     initCounters();
 

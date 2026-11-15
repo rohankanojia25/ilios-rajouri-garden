@@ -189,6 +189,28 @@
 
   <!-- Mobile Overlay -->
   <div class="mobile-overlay" id="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-overlay-header">
+      <a href="/" class="brand-logo" aria-label="ilios homepage">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span>ilios</span>
+      </a>
+      <button type="button" class="mobile-overlay-close" id="mobile-overlay-close-btn" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
     <ul class="mobile-accordion-list">
       <li>
         <button type="button" class="mobile-accordion-header">
@@ -278,14 +300,99 @@
       </div>
     </header>
 
-    <!-- Quick Facts Row -->
+    <!-- Quick Facts Row (Swipe row of 3 pills on mobile) -->
     <section class="section-pad--tight" style="background-color: var(--chalk-pure); border-bottom: 1px solid var(--border-subtle);">
       <div class="container">
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; text-align:center; font-size:0.95rem; font-weight:600; color:var(--aegean);">
+        <div class="party-facts-row" style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; text-align:center; font-size:0.95rem; font-weight:600; color:var(--aegean);">
           <!-- CONFIRM: Capacity and inclusions -->
-          <span>👥 Groups from 10 to 120 guests</span>
-          <span>🍽️ Set menus, veg &amp; non-veg</span>
-          <span>🎤 Stage &amp; music for your night</span>
+          <span class="party-fact-pill">👥 Groups from 10 to 120 guests</span>
+          <span class="party-fact-pill">🍽️ Set menus, veg &amp; non-veg</span>
+          <span class="party-fact-pill">🎤 Stage &amp; music for your night</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- The ONE Party Form (First on Mobile) -->
+    <section class="section-pad" id="enquire" style="background-color: var(--chalk-pure);">
+      <div class="container">
+        <div class="form-box reveal">
+          <div class="form-head">
+            <span class="eyebrow">Enquiry</span>
+            <h2 style="font-family:var(--font-display); font-size:2.2rem; color:var(--aegean);">Get a Party Quote</h2>
+            <p style="color:var(--text-muted); font-size:0.95rem;">Send your details directly to our events manager on WhatsApp.</p>
+          </div>
+
+          <form id="party-enquiry-form">
+            <div class="booking-form-grid">
+              <!-- Contact Name -->
+              <div class="form-group">
+                <label for="party-name" class="form-label">Contact Name *</label>
+                <input type="text" id="party-name" class="form-control" placeholder="e.g. Shalini Kapoor" required autocomplete="name">
+              </div>
+
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="party-phone" class="form-label">Phone Number *</label>
+                <input type="tel" id="party-phone" class="form-control" placeholder="10-digit mobile number" required inputmode="tel" autocomplete="tel">
+              </div>
+
+              <!-- Event Date & Guests (50/50 side-by-side on mobile >=375px) -->
+              <div class="form-row-datetime form-col-span-2">
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="party-date" class="form-label">Event Date *</label>
+                  <input type="date" id="party-date" class="form-control" required>
+                </div>
+
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="party-guests" class="form-label">Expected Guests *</label>
+                  <select id="party-guests" class="form-control" required>
+                    <option value="">Select guest range</option>
+                    <option value="10–20 guests">10–20 guests</option>
+                    <option value="20–40 guests">20–40 guests</option>
+                    <option value="40–80 guests">40–80 guests</option>
+                    <option value="80+ guests">80+ guests (Full venue buyout)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Occasion -->
+              <div class="form-group">
+                <label for="party-occasion" class="form-label">Occasion *</label>
+                <select id="party-occasion" class="form-control" required>
+                  <option value="">Select occasion</option>
+                  <option value="Birthday Celebration">Birthday</option>
+                  <option value="Corporate Mixer / Team Dinner">Corporate Party</option>
+                  <option value="Anniversary Party">Anniversary</option>
+                  <option value="Pre-Wedding / Cocktail Night">Pre-wedding</option>
+                  <option value="Kitty Party">Kitty Party</option>
+                  <option value="Farewell / Reunion">Farewell</option>
+                  <option value="Other Celebration">Other</option>
+                </select>
+              </div>
+
+              <!-- Budget Per Person -->
+              <div class="form-group">
+                <label for="party-budget" class="form-label">Budget Per Person (Optional)</label>
+                <select id="party-budget" class="form-control">
+                  <option value="Not decided yet">Not decided yet</option>
+                  <option value="₹800–1,200 / person">₹800–1,200 / person</option>
+                  <option value="₹1,200–1,800 / person">₹1,200–1,800 / person</option>
+                  <option value="₹1,800+ / person">₹1,800+ / person</option>
+                </select>
+              </div>
+
+              <!-- Submit -->
+              <div class="form-group form-col-span-2" style="margin-top:0.5rem;">
+                <button type="submit" class="btn btn-whatsapp form-submit-btn" style="width:100%; font-size:1.05rem;">
+                  Get my party quote on WhatsApp
+                </button>
+              </div>
+            </div>
+
+            <!-- Inline Messages -->
+            <div id="party-success-msg" class="form-msg form-msg--success" role="status" aria-live="polite"></div>
+            <div id="party-error-msg" class="form-msg form-msg--error" role="alert" aria-live="polite"></div>
+          </form>
         </div>
       </div>
     </section>
@@ -508,90 +615,6 @@
               Parking is limited along Ring Road. Call us in advance and our staff will guide your guests to the easiest parking spots.
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- The ONE Party Form -->
-    <section class="section-pad" id="enquire">
-      <div class="container">
-        <div class="form-box reveal">
-          <div class="form-head">
-            <span class="eyebrow">Enquiry</span>
-            <h2 style="font-family:var(--font-display); font-size:2.2rem; color:var(--aegean);">Get a Party Quote</h2>
-            <p style="color:var(--text-muted); font-size:0.95rem;">Send your details directly to our events manager on WhatsApp.</p>
-          </div>
-
-          <form id="party-enquiry-form">
-            <div class="booking-form-grid">
-              <!-- Contact Name -->
-              <div class="form-group">
-                <label for="party-name" class="form-label">Contact Name *</label>
-                <input type="text" id="party-name" class="form-control" placeholder="e.g. Shalini Kapoor" required autocomplete="name">
-              </div>
-
-              <!-- Phone -->
-              <div class="form-group">
-                <label for="party-phone" class="form-label">Phone Number *</label>
-                <input type="tel" id="party-phone" class="form-control" placeholder="10-digit mobile number" required inputmode="tel" autocomplete="tel">
-              </div>
-
-              <!-- Event Date -->
-              <div class="form-group">
-                <label for="party-date" class="form-label">Event Date *</label>
-                <input type="date" id="party-date" class="form-control" required>
-              </div>
-
-              <!-- Guests -->
-              <div class="form-group">
-                <label for="party-guests" class="form-label">Expected Guests *</label>
-                <select id="party-guests" class="form-control" required>
-                  <option value="">Select guest range</option>
-                  <option value="10–20 guests">10–20 guests</option>
-                  <option value="20–40 guests">20–40 guests</option>
-                  <option value="40–80 guests">40–80 guests</option>
-                  <option value="80+ guests">80+ guests (Full venue buyout)</option>
-                </select>
-              </div>
-
-              <!-- Occasion -->
-              <div class="form-group">
-                <label for="party-occasion" class="form-label">Occasion *</label>
-                <select id="party-occasion" class="form-control" required>
-                  <option value="">Select occasion</option>
-                  <option value="Birthday Celebration">Birthday</option>
-                  <option value="Corporate Mixer / Team Dinner">Corporate Party</option>
-                  <option value="Anniversary Party">Anniversary</option>
-                  <option value="Pre-Wedding / Cocktail Night">Pre-wedding</option>
-                  <option value="Kitty Party">Kitty Party</option>
-                  <option value="Farewell / Reunion">Farewell</option>
-                  <option value="Other Celebration">Other</option>
-                </select>
-              </div>
-
-              <!-- Budget Per Person -->
-              <div class="form-group">
-                <label for="party-budget" class="form-label">Budget Per Person (Optional)</label>
-                <select id="party-budget" class="form-control">
-                  <option value="Not decided yet">Not decided yet</option>
-                  <option value="₹800–1,200 / person">₹800–1,200 / person</option>
-                  <option value="₹1,200–1,800 / person">₹1,200–1,800 / person</option>
-                  <option value="₹1,800+ / person">₹1,800+ / person</option>
-                </select>
-              </div>
-
-              <!-- Submit -->
-              <div class="form-group form-col-span-2" style="margin-top:0.5rem;">
-                <button type="submit" class="btn btn-whatsapp" style="width:100%; font-size:1.05rem;">
-                  Get my party quote on WhatsApp
-                </button>
-              </div>
-            </div>
-
-            <!-- Inline Messages -->
-            <div id="party-success-msg" class="form-msg form-msg--success" role="status" aria-live="polite"></div>
-            <div id="party-error-msg" class="form-msg form-msg--error" role="alert" aria-live="polite"></div>
-          </form>
         </div>
       </div>
     </section>

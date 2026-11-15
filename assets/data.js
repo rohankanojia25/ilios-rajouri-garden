@@ -639,6 +639,12 @@ function getUpcomingEvents(n) {
     var yyyy       = checkDate.getFullYear();
     var formattedDate = dayNames[dow] + ", " + dd + " " + monthNames[mm];
 
+    /* Abbreviated day / month for compact cards */
+    var shortDay = dayNames[dow].substring(0, 3);
+    var dayShortUpper = shortDay.toUpperCase();
+    var monthShortUpper = monthNames[mm].toUpperCase();
+    var displayDate = shortDay + ", " + dd + " " + monthNames[mm];
+
     /* dateStr: "21/11/2025",  dateISO: "2025-11-21" */
     var ddStr  = dd < 10 ? "0" + dd : "" + dd;
     var mmStr  = (mm + 1) < 10 ? "0" + (mm + 1) : "" + (mm + 1);
@@ -648,6 +654,10 @@ function getUpcomingEvents(n) {
     results.push({
       dayOfWeek:     entry.dayOfWeek,
       dayName:       entry.dayName,
+      dayShort:      dayShortUpper,
+      dateNum:       dd < 10 ? "0" + dd : "" + dd,
+      monthShort:    monthShortUpper,
+      displayDate:   displayDate,
       title:         entry.title,
       genre:         entry.genre,
       time:          entry.time,
@@ -667,8 +677,8 @@ function getUpcomingEvents(n) {
  * 11. HELPER — getTonightOrNextEvent()
  * ---------------------------------------------------------------------------
  *   Returns a hero-chip object:
- *     { text: "🎶 Tonight: Sufi Night · 8:30 PM" }
- *     { text: "Next live night: Fri 21/11 · Sufi Night" }
+ *     { text: "🎶 Tonight: Sufi Night · 8:30 PM", mobileText: "Tonight 5:30 PM · Sundowner · ≈₹1,000 for two" }
+ *     { text: "Next live night: Fri 21/11 · Sufi Night", mobileText: "Fri · Sufi Night 8:30 PM · ≈₹1,000 for two" }
  *   Returns null if no events found within 28 days.
  * ------------------------------------------------------------------------- */
 function getTonightOrNextEvent() {
@@ -677,11 +687,32 @@ function getTonightOrNextEvent() {
 
   var evt = upcoming[0];
 
-  if (evt.isTonight) {
-    return { text: "\uD83C\uDFB6 Tonight: " + evt.title + " \u00B7 " + evt.time };
+  function getShortTitle(title) {
+    if (/sundowner/i.test(title)) return "Sundowner";
+    if (/sufi/i.test(title)) return "Sufi Night";
+    if (/live band/i.test(title)) return "Live Band";
+    if (/bollywood/i.test(title)) return "Bollywood";
+    return title;
   }
 
-  /* Abbreviate the day name: "Wednesday" → "Wed" */
-  var shortDay = evt.dayName.substring(0, 3);
-  return { text: "Next live night: " + shortDay + " " + evt.dateStr + " \u00B7 " + evt.title };
+  function getShortTime(timeStr) {
+    var m = timeStr.match(/\d+:\d+\s*(?:AM|PM)/i);
+    return m ? m[0] : timeStr;
+  }
+
+  var shortTitle = getShortTitle(evt.title);
+  var shortTime  = getShortTime(evt.time);
+  var shortDay   = evt.dayName.substring(0, 3);
+
+  if (evt.isTonight) {
+    return {
+      text: "\uD83C\uDFB6 Tonight: " + evt.title + " \u00B7 " + evt.time,
+      mobileText: "Tonight " + shortTime + " \u00B7 " + shortTitle + " \u00B7 \u2248\u20B91,000 for two"
+    };
+  }
+
+  return {
+    text: "Next live night: " + shortDay + " " + evt.dateStr + " \u00B7 " + evt.title,
+    mobileText: shortDay + " \u00B7 " + shortTitle + " " + shortTime + " \u00B7 \u2248\u20B91,000 for two"
+  };
 }

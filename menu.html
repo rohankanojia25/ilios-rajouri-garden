@@ -141,6 +141,28 @@
 
   <!-- Mobile Overlay -->
   <div class="mobile-overlay" id="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-overlay-header">
+      <a href="/" class="brand-logo" aria-label="ilios homepage">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span>ilios</span>
+      </a>
+      <button type="button" class="mobile-overlay-close" id="mobile-overlay-close-btn" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
     <ul class="mobile-accordion-list">
       <li>
         <button type="button" class="mobile-accordion-header">
@@ -344,20 +366,22 @@
           <h2 class="section-title">Browse by Category</h2>
         </div>
 
-        <!-- Sticky Tabs Row on Mobile -->
-        <div class="menu-tabs reveal" role="tablist" aria-label="Menu sections">
-          <button type="button" class="menu-tab-btn active" role="tab" id="tab-small-plates" aria-selected="true" aria-controls="menu-items-container" data-tab="small_plates">
-            Small Plates
-          </button>
-          <button type="button" class="menu-tab-btn" role="tab" id="tab-mains" aria-selected="false" aria-controls="menu-items-container" data-tab="mains">
-            Mains
-          </button>
-          <button type="button" class="menu-tab-btn" role="tab" id="tab-pizza-pasta" aria-selected="false" aria-controls="menu-items-container" data-tab="pizza_pasta">
-            Pizza &amp; Pasta
-          </button>
-          <button type="button" class="menu-tab-btn" role="tab" id="tab-shakes" aria-selected="false" aria-controls="menu-items-container" data-tab="shakes">
-            Shakes &amp; Mocktails
-          </button>
+        <!-- Sticky Tabs Row on Mobile with Right Fade Gradient -->
+        <div class="menu-tabs-wrapper">
+          <div class="menu-tabs reveal" role="tablist" aria-label="Menu sections">
+            <button type="button" class="menu-tab-btn active" role="tab" id="tab-small-plates" aria-selected="true" aria-controls="menu-items-container" data-tab="small_plates">
+              Small Plates
+            </button>
+            <button type="button" class="menu-tab-btn" role="tab" id="tab-mains" aria-selected="false" aria-controls="menu-items-container" data-tab="mains">
+              Mains
+            </button>
+            <button type="button" class="menu-tab-btn" role="tab" id="tab-pizza-pasta" aria-selected="false" aria-controls="menu-items-container" data-tab="pizza_pasta">
+              Pizza &amp; Pasta
+            </button>
+            <button type="button" class="menu-tab-btn" role="tab" id="tab-shakes" aria-selected="false" aria-controls="menu-items-container" data-tab="shakes">
+              Shakes &amp; Mocktails
+            </button>
+          </div>
         </div>
 
         <!-- Menu Container populated dynamically from data.js (Pre-rendered fallback for zero-JS) -->

@@ -140,6 +140,28 @@
 
   <!-- Mobile Overlay -->
   <div class="mobile-overlay" id="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-overlay-header">
+      <a href="/" class="brand-logo" aria-label="ilios homepage">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span>ilios</span>
+      </a>
+      <button type="button" class="mobile-overlay-close" id="mobile-overlay-close-btn" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
     <ul class="mobile-accordion-list">
       <li>
         <button type="button" class="mobile-accordion-header">
@@ -239,13 +261,156 @@
       </div>
     </section>
 
-    <!-- Table Types -->
+    <!-- The ONE Reservation Form (First on Mobile) -->
+    <section class="section-pad" style="background-color: var(--chalk-pure);" id="form">
+      <div class="container">
+        <div class="form-box reveal">
+          <div class="form-head">
+            <span class="eyebrow">Table Booking</span>
+            <h2 style="font-family:var(--font-display); font-size:2.2rem; color:var(--aegean);">Send Your Booking Request</h2>
+            <p style="color:var(--text-muted); font-size:0.95rem;">We will confirm your table on WhatsApp during opening hours.</p>
+          </div>
+
+          <form id="table-reservation-form">
+            <div class="booking-form-grid">
+              <!-- Full Name -->
+              <div class="form-group">
+                <label for="book-name" class="form-label">Full Name *</label>
+                <input type="text" id="book-name" class="form-control" placeholder="e.g. Vikram Malhotra" required autocomplete="name">
+              </div>
+
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="book-phone" class="form-label">Phone Number *</label>
+                <input type="tel" id="book-phone" class="form-control" placeholder="10-digit mobile number" required inputmode="tel" autocomplete="tel">
+              </div>
+
+              <!-- Date & Time (50/50 side-by-side on mobile >=375px) -->
+              <div class="form-row-datetime form-col-span-2">
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="book-date" class="form-label">Date *</label>
+                  <input type="date" id="book-date" class="form-control" required>
+                </div>
+
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="book-time" class="form-label">Time Slot *</label>
+                  <select id="book-time" class="form-control" required>
+                    <option value="">Select a time</option>
+                    <option value="12:30 PM">12:30 PM</option>
+                    <option value="01:00 PM">01:00 PM</option>
+                    <option value="01:30 PM">01:30 PM</option>
+                    <option value="02:00 PM">02:00 PM</option>
+                    <option value="02:30 PM">02:30 PM</option>
+                    <option value="03:00 PM">03:00 PM</option>
+                    <option value="05:30 PM">05:30 PM (Sundowner)</option>
+                    <option value="06:00 PM">06:00 PM</option>
+                    <option value="06:30 PM">06:30 PM</option>
+                    <option value="07:00 PM">07:00 PM</option>
+                    <option value="07:30 PM">07:30 PM</option>
+                    <option value="08:00 PM">08:00 PM</option>
+                    <option value="08:30 PM">08:30 PM (Live Music)</option>
+                    <option value="09:00 PM">09:00 PM</option>
+                    <option value="09:30 PM">09:30 PM</option>
+                    <option value="10:00 PM">10:00 PM</option>
+                    <option value="10:30 PM">10:30 PM</option>
+                    <option value="11:00 PM">11:00 PM</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Guests -->
+              <div class="form-group form-col-span-2">
+                <label for="book-guests" class="form-label">Number of Guests *</label>
+                <select id="book-guests" class="form-control" required>
+                  <option value="">Select guest count</option>
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6 Guests</option>
+                  <option value="7">7 Guests</option>
+                  <option value="8">8 Guests</option>
+                  <option value="9">9 Guests</option>
+                  <option value="10">10 Guests</option>
+                  <option value="10+ (we'll call you)">10+ (we'll call you)</option>
+                </select>
+              </div>
+
+              <!-- Table Preference Choice Chips -->
+              <div class="form-group form-col-span-2">
+                <label class="form-label">Table Preference</label>
+                <div class="table-choice-chips" role="radiogroup" aria-label="Table preference">
+                  <button type="button" class="table-choice-chip active" data-table="no-preference" data-table-val="No preference" role="radio" aria-checked="true">
+                    <span class="chip-thumb chip-thumb--icon" aria-hidden="true">☀️</span>
+                    <span class="chip-info">
+                      <span class="chip-name">No preference</span>
+                      <span class="chip-sub">Any available table</span>
+                    </span>
+                  </button>
+                  <button type="button" class="table-choice-chip" data-table="rooftop-corner" data-table-val="Rooftop Santorini Corner" role="radio" aria-checked="false">
+                    <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=120&q=80" alt="Rooftop corner" class="chip-thumb" loading="lazy">
+                    <span class="chip-info">
+                      <span class="chip-name">Rooftop Corner</span>
+                      <span class="chip-sub">2–4 guests · Photo spot</span>
+                    </span>
+                  </button>
+                  <button type="button" class="table-choice-chip" data-table="arch-booth" data-table-val="The Arch Booth" role="radio" aria-checked="false">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=120&q=80" alt="Arch booth" class="chip-thumb" loading="lazy">
+                    <span class="chip-info">
+                      <span class="chip-name">The Arch Booth</span>
+                      <span class="chip-sub">4–6 guests · Cushioned</span>
+                    </span>
+                  </button>
+                  <button type="button" class="table-choice-chip" data-table="stage-side" data-table-val="Stage-Side Table" role="radio" aria-checked="false">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=120&q=80" alt="Stage-side table" class="chip-thumb" loading="lazy">
+                    <span class="chip-info">
+                      <span class="chip-name">Stage-Side Table</span>
+                      <span class="chip-sub">6–10 guests · Live gigs</span>
+                    </span>
+                  </button>
+                </div>
+                <!-- Hidden synced select for form value -->
+                <select id="book-table-type" class="form-control" style="display:none;" aria-hidden="true">
+                  <option value="No preference" selected>No preference</option>
+                  <option value="Rooftop Santorini Corner">Rooftop Santorini Corner</option>
+                  <option value="The Arch Booth">The Arch Booth</option>
+                  <option value="Stage-Side Table">Stage-Side Table</option>
+                </select>
+              </div>
+
+              <!-- Note -->
+              <div class="form-group form-col-span-2">
+                <label for="book-note" class="form-label">Special Requests (Optional)</label>
+                <input type="text" id="book-note" class="form-control" placeholder="Birthday, anniversary cake, high chair…">
+              </div>
+
+              <!-- Submit -->
+              <div class="form-group form-col-span-2" style="margin-top:0.5rem;">
+                <button type="submit" class="btn btn-whatsapp form-submit-btn" style="width:100%; font-size:1.05rem;">
+                  Send booking on WhatsApp
+                </button>
+                <p style="text-align:center; font-size:0.8125rem; color:var(--text-muted); margin-top:0.6rem;">
+                  We reply on WhatsApp between 12 noon and 12 midnight.
+                </p>
+              </div>
+            </div>
+
+            <!-- Inline Messages -->
+            <div id="reserve-success-msg" class="form-msg form-msg--success" role="status" aria-live="polite"></div>
+            <div id="reserve-error-msg" class="form-msg form-msg--error" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Corners (Below Form) -->
     <section class="section-pad" id="table-options">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Corners</span>
-          <h2 class="section-title">Select Your Preferred Table</h2>
-          <p class="section-subtitle">Pick a spot below or choose "No preference" in the form.</p>
+          <h2 class="section-title">Our corners</h2>
+          <p class="section-subtitle">Take a closer look at each seating space or select one above.</p>
         </div>
 
         <div class="vip-tables-grid">
@@ -305,117 +470,6 @@
               </button>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- The ONE Reservation Form -->
-    <section class="section-pad" style="background-color: var(--chalk-pure);" id="form">
-      <div class="container">
-        <div class="form-box reveal">
-          <div class="form-head">
-            <span class="eyebrow">Table Booking</span>
-            <h2 style="font-family:var(--font-display); font-size:2.2rem; color:var(--aegean);">Send Your Booking Request</h2>
-            <p style="color:var(--text-muted); font-size:0.95rem;">We will confirm your table on WhatsApp during opening hours.</p>
-          </div>
-
-          <form id="table-reservation-form">
-            <div class="booking-form-grid">
-              <!-- Full Name -->
-              <div class="form-group">
-                <label for="book-name" class="form-label">Full Name *</label>
-                <input type="text" id="book-name" class="form-control" placeholder="e.g. Vikram Malhotra" required autocomplete="name">
-              </div>
-
-              <!-- Phone -->
-              <div class="form-group">
-                <label for="book-phone" class="form-label">Phone Number *</label>
-                <input type="tel" id="book-phone" class="form-control" placeholder="10-digit mobile number" required inputmode="tel" autocomplete="tel">
-              </div>
-
-              <!-- Date -->
-              <div class="form-group">
-                <label for="book-date" class="form-label">Date *</label>
-                <input type="date" id="book-date" class="form-control" required>
-              </div>
-
-              <!-- Time Slot -->
-              <div class="form-group">
-                <label for="book-time" class="form-label">Time Slot *</label>
-                <select id="book-time" class="form-control" required>
-                  <option value="">Select a time</option>
-                  <option value="12:30 PM">12:30 PM</option>
-                  <option value="01:00 PM">01:00 PM</option>
-                  <option value="01:30 PM">01:30 PM</option>
-                  <option value="02:00 PM">02:00 PM</option>
-                  <option value="02:30 PM">02:30 PM</option>
-                  <option value="03:00 PM">03:00 PM</option>
-                  <option value="05:30 PM">05:30 PM (Sundowner)</option>
-                  <option value="06:00 PM">06:00 PM</option>
-                  <option value="06:30 PM">06:30 PM</option>
-                  <option value="07:00 PM">07:00 PM</option>
-                  <option value="07:30 PM">07:30 PM</option>
-                  <option value="08:00 PM">08:00 PM</option>
-                  <option value="08:30 PM">08:30 PM (Live Music)</option>
-                  <option value="09:00 PM">09:00 PM</option>
-                  <option value="09:30 PM">09:30 PM</option>
-                  <option value="10:00 PM">10:00 PM</option>
-                  <option value="10:30 PM">10:30 PM</option>
-                  <option value="11:00 PM">11:00 PM</option>
-                </select>
-              </div>
-
-              <!-- Guests -->
-              <div class="form-group">
-                <label for="book-guests" class="form-label">Number of Guests *</label>
-                <select id="book-guests" class="form-control" required>
-                  <option value="">Select guest count</option>
-                  <option value="1">1 Guest</option>
-                  <option value="2">2 Guests</option>
-                  <option value="3">3 Guests</option>
-                  <option value="4">4 Guests</option>
-                  <option value="5">5 Guests</option>
-                  <option value="6">6 Guests</option>
-                  <option value="7">7 Guests</option>
-                  <option value="8">8 Guests</option>
-                  <option value="9">9 Guests</option>
-                  <option value="10">10 Guests</option>
-                  <option value="10+ (we'll call you)">10+ (we'll call you)</option>
-                </select>
-              </div>
-
-              <!-- Table Preference -->
-              <div class="form-group">
-                <label for="book-table-type" class="form-label">Table Preference</label>
-                <select id="book-table-type" class="form-control">
-                  <option value="No preference">No preference</option>
-                  <option value="Rooftop Santorini Corner">Rooftop Santorini Corner</option>
-                  <option value="The Arch Booth">The Arch Booth</option>
-                  <option value="Stage-Side Table">Stage-Side Table</option>
-                </select>
-              </div>
-
-              <!-- Note -->
-              <div class="form-group form-col-span-2">
-                <label for="book-note" class="form-label">Special Requests (Optional)</label>
-                <input type="text" id="book-note" class="form-control" placeholder="Birthday, anniversary cake, high chair…">
-              </div>
-
-              <!-- Submit -->
-              <div class="form-group form-col-span-2" style="margin-top:0.5rem;">
-                <button type="submit" class="btn btn-whatsapp" style="width:100%; font-size:1.05rem;">
-                  Send booking on WhatsApp
-                </button>
-                <p style="text-align:center; font-size:0.8125rem; color:var(--text-muted); margin-top:0.6rem;">
-                  We reply on WhatsApp between 12 noon and 12 midnight.
-                </p>
-              </div>
-            </div>
-
-            <!-- Inline Messages -->
-            <div id="reserve-success-msg" class="form-msg form-msg--success" role="status" aria-live="polite"></div>
-            <div id="reserve-error-msg" class="form-msg form-msg--error" role="alert" aria-live="polite"></div>
-          </form>
         </div>
       </div>
     </section>

@@ -2243,3 +2243,1001 @@ body.mobile-menu-open .mobile-bottom-bar {
     break-inside: avoid !important;
   }
 }
+
+/* ============================================================================
+ * 27. SHARED BASE ADDITIONS FOR MOBILE-FIRST ARCHITECTURE
+ * ========================================================================= */
+.hero-chip--mobile {
+  display: none;
+}
+.eyebrow-mobile {
+  display: none;
+}
+.link-text-mobile {
+  display: none;
+}
+.tonight-dot-badge {
+  display: none;
+}
+
+/* Table Choice Chips Base (Desktop defaults) */
+.table-choice-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+.table-choice-chip {
+  min-height: 68px;
+  padding: 8px 10px;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 10px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.table-choice-chip:hover {
+  border-color: var(--sun);
+}
+.table-choice-chip.active {
+  border-color: var(--sun);
+  background: rgba(201, 161, 90, 0.12);
+  box-shadow: 0 2px 10px rgba(201, 161, 90, 0.2);
+}
+.chip-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.chip-thumb--icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 161, 90, 0.15);
+  font-size: 24px;
+}
+.chip-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--aegean);
+}
+.chip-sub {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Event Card Inner Layout Base */
+.event-card-inner {
+  display: flex;
+  flex-direction: column;
+}
+.event-date-block {
+  display: none;
+}
+.event-time-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Mobile Overlay Header Base */
+.mobile-overlay-header {
+  display: none;
+}
+.mobile-overlay-close {
+  display: none;
+}
+
+/* Sticky Bottom Bar Behavior */
+.mobile-bottom-bar {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.mobile-bottom-bar.bar-hidden,
+body.keyboard-open .mobile-bottom-bar,
+body.mobile-menu-open .mobile-bottom-bar {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ============================================================================
+ * 28. MOBILE CLEANUP OVERRIDES (<768px)
+ * Strict Mobile Rhythm: 20px gutters, 56px section padding, H2 clamp(1.75rem, 7vw, 2rem)
+ * ========================================================================= */
+@media (max-width: 767px) {
+  /* Container & Rhythm */
+  .container {
+    padding: 0 20px !important;
+  }
+  .section-pad {
+    padding: 56px 0 !important;
+  }
+  .section-head {
+    margin-bottom: 24px !important;
+    text-align: center !important;
+  }
+  .section-title, h2 {
+    font-size: clamp(1.75rem, 7vw, 2rem) !important;
+    line-height: 1.25 !important;
+  }
+  .section-subtitle {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  body {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  /* 1. HERO */
+  .hero-section {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    padding: 70px 0 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .hero-content {
+    padding: 0 16px !important;
+    max-width: 100% !important;
+  }
+  .hero-eyebrow {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 0.75rem !important;
+    white-space: nowrap !important;
+  }
+  .eyebrow-desktop {
+    display: none !important;
+  }
+  .eyebrow-mobile {
+    display: inline !important;
+  }
+  .hero-chips-row {
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    justify-content: center !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .hero-chip--desktop {
+    display: none !important;
+  }
+  .hero-chip--mobile {
+    display: inline-flex !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-size: 13px !important;
+    padding: 0.4rem 0.85rem !important;
+  }
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 1.25rem auto 0 !important;
+  }
+  .hero-btn-reserve {
+    width: 100% !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .hero-menu-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--chalk) !important;
+    font-size: 15px !important;
+    min-height: 44px !important;
+    text-decoration: underline !important;
+    text-underline-offset: 4px !important;
+    padding: 4px 0 !important;
+  }
+  .btn-text-desktop {
+    display: none !important;
+  }
+  .link-text-mobile {
+    display: inline !important;
+  }
+  .hero-scroll-indicator {
+    display: none !important;
+  }
+
+  /* 2. NAV & MOBILE OVERLAY */
+  .menu-toggle {
+    background: transparent !important;
+    border: none !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 10px !important;
+  }
+  .site-nav--solid .menu-toggle,
+  .site-nav.scrolled .menu-toggle {
+    background: transparent !important;
+  }
+  .mobile-overlay {
+    padding: 1rem 1.25rem 2rem !important;
+  }
+  .mobile-overlay-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 0.5rem 0 1rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+    margin-bottom: 1rem !important;
+  }
+  .mobile-overlay-close {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--chalk) !important;
+    cursor: pointer !important;
+  }
+  .mobile-sublink {
+    font-size: 16px !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 8px 12px !important;
+  }
+  .mobile-accordion-header {
+    min-height: 48px !important;
+    font-size: 18px !important;
+  }
+
+  /* 3. STAT STRIP (2x2 grid, height <= 220px) */
+  .stat-strip {
+    padding: 24px 0 !important;
+    max-height: 220px !important;
+  }
+  .stat-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px 10px !important;
+    text-align: center !important;
+  }
+  .stat-item {
+    padding: 4px 6px !important;
+  }
+  .stat-number {
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 2px !important;
+  }
+  .stat-label {
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* 4. SIGNATURE DISHES (Horizontal Swipe Row, height <= 560px) */
+  #dishes {
+    max-height: 560px !important;
+    overflow: hidden !important;
+  }
+  .dishes-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 12px !important;
+    padding: 4px 20px 12px !important;
+    margin: 0 -20px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .dishes-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+  .dishes-grid .dish-card {
+    flex: 0 0 78% !important;
+    width: 78% !important;
+    scroll-snap-align: start !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .dish-img-box {
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+  }
+  .dish-img-box img {
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .dish-content {
+    padding: 0.85rem 1rem !important;
+  }
+  .dish-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    margin-bottom: 4px !important;
+  }
+  .dish-title-wrap {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+  }
+  .dish-title {
+    font-size: 1.1rem !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .dish-price {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: var(--sun-hover) !important;
+    white-space: nowrap !important;
+  }
+  .dish-desc {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    margin: 4px 0 0 !important;
+  }
+  .swipe-peek-note {
+    font-size: 12px !important;
+    color: var(--text-muted) !important;
+    text-align: center !important;
+    margin-top: 6px !important;
+  }
+
+  /* 5. LIVE THIS WEEK (Compact List Rows <= 260px) */
+  #live-music {
+    padding: 44px 0 !important;
+  }
+  #home-live-events,
+  .live-events-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .event-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    padding: 10px 12px !important;
+    min-height: 76px !important;
+    border-radius: 12px !important;
+    background: var(--ink-card) !important;
+    border: 1px solid var(--border-night) !important;
+  }
+  .event-badge {
+    display: none !important;
+  }
+  .event-card-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  .event-date-block {
+    width: 56px !important;
+    height: 56px !important;
+    flex-shrink: 0 !important;
+    background: rgba(201, 161, 90, 0.12) !important;
+    border: 1px solid var(--sun) !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1.1 !important;
+  }
+  .event-dow {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: var(--sun) !important;
+    letter-spacing: 0.05em !important;
+  }
+  .event-day-num {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: var(--chalk) !important;
+  }
+  .event-mon {
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    color: var(--sun) !important;
+    letter-spacing: 0.05em !important;
+  }
+  .event-info-col {
+    min-width: 0 !important;
+    flex: 1 !important;
+  }
+  .event-heading-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  .event-title {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: var(--chalk) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin: 0 !important;
+    font-family: var(--font-body) !important;
+  }
+  .tonight-dot-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: var(--sun) !important;
+    flex-shrink: 0 !important;
+  }
+  .gold-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: var(--sun) !important;
+    display: inline-block !important;
+  }
+  .event-genre {
+    display: none !important;
+  }
+  .event-time-row {
+    font-size: 13px !important;
+    color: var(--text-light-muted) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    margin-top: 2px !important;
+  }
+  .event-time-sep {
+    color: rgba(201, 161, 90, 0.5) !important;
+  }
+  .event-cta-wrap {
+    flex-shrink: 0 !important;
+  }
+  .event-cta {
+    min-height: 44px !important;
+    width: auto !important;
+    padding: 0 14px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  /* 6. PICK YOUR CORNER (Swipe Row <= 520px) */
+  #tables {
+    max-height: 520px !important;
+    overflow: hidden !important;
+  }
+  .vip-tables-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 12px !important;
+    padding: 4px 20px 12px !important;
+    margin: 0 -20px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .vip-tables-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+  .vip-tables-grid .table-card {
+    flex: 0 0 78% !important;
+    width: 78% !important;
+    scroll-snap-align: start !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .table-img-box {
+    aspect-ratio: 16 / 10 !important;
+    height: auto !important;
+  }
+  .table-img-box img {
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .table-content {
+    padding: 0.85rem 1rem !important;
+  }
+  .table-capacity {
+    font-size: 13px !important;
+    margin-bottom: 2px !important;
+  }
+  .table-type-title {
+    font-size: 1.15rem !important;
+    margin-bottom: 4px !important;
+  }
+  .table-desc {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    font-size: 13px !important;
+    margin-bottom: 8px !important;
+  }
+  .table-perks {
+    display: none !important;
+  }
+  .vip-tables-grid .table-card .btn {
+    min-height: 44px !important;
+    width: 100% !important;
+    font-size: 14px !important;
+  }
+
+  /* 7. GALLERY STRIP (4-photo Swipe Row <= 420px) */
+  #gallery-strip {
+    max-height: 420px !important;
+    overflow: hidden !important;
+  }
+  .gallery-strip-row {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 12px !important;
+    padding: 4px 20px 12px !important;
+    margin: 0 -20px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .gallery-strip-row::-webkit-scrollbar {
+    display: none !important;
+  }
+  .gallery-strip-row .gallery-item {
+    flex: 0 0 70% !important;
+    width: 70% !important;
+    scroll-snap-align: start !important;
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+  .gallery-strip-row .gallery-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* 8. REVIEWS (Swipe Row <= 380px) */
+  #reviews {
+    max-height: 380px !important;
+    overflow: hidden !important;
+  }
+  .reviews-swipe-row {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 12px !important;
+    padding: 4px 20px 12px !important;
+    margin: 0 -20px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .reviews-swipe-row::-webkit-scrollbar {
+    display: none !important;
+  }
+  .reviews-swipe-row .review-card {
+    flex: 0 0 85% !important;
+    width: 85% !important;
+    scroll-snap-align: start !important;
+    margin: 0 !important;
+    padding: 16px 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+  .review-text {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    margin: 6px 0 !important;
+  }
+  .review-footer {
+    font-size: 13px !important;
+    margin-top: 8px !important;
+  }
+  .review-link-under {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--aegean) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 4px !important;
+    margin-top: 10px !important;
+  }
+
+  /* 9. PARTY BANNER (<= 300px) */
+  #parties-teaser {
+    max-height: 300px !important;
+    padding: 40px 0 !important;
+  }
+  .party-teaser-btn {
+    width: 100% !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* 10. VISIT / FIND US (<= 320px) */
+  #visit-teaser {
+    max-height: 320px !important;
+    padding: 40px 0 !important;
+  }
+  .visit-card {
+    padding: 20px 16px !important;
+  }
+  .visit-address {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 4px !important;
+  }
+  .visit-timings {
+    font-size: 13px !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 6px !important;
+  }
+  .visit-more-link {
+    display: inline-flex !important;
+    min-height: 44px !important;
+    align-items: center !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: var(--sun-hover) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px !important;
+    margin-bottom: 10px !important;
+  }
+  .visit-action-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .visit-btn-dir, .visit-btn-call {
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* 11. CLOSING CTA BAND (Hidden on Home mobile) */
+  #home-cta {
+    display: none !important;
+  }
+
+  /* 12. FOOTER (<= 520px) */
+  .site-footer {
+    padding: 36px 0 20px !important;
+    max-height: 520px !important;
+  }
+  .footer-top-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .footer-brand-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 2px !important;
+  }
+  .footer-desc {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+  }
+  .footer-social-row {
+    gap: 8px !important;
+    margin-bottom: 8px !important;
+  }
+  .footer-explore-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px 10px !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .footer-explore-grid a {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 44px !important;
+    font-size: 14px !important;
+    color: var(--text-light-muted) !important;
+  }
+  .footer-contact-compact {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    color: var(--text-light-muted) !important;
+  }
+  .footer-bottom {
+    padding-top: 14px !important;
+    font-size: 12px !important;
+    gap: 4px !important;
+    text-align: center !important;
+  }
+  .fssai-box {
+    font-size: 12px !important;
+  }
+
+  /* 13. INNER PAGES BANNER (32svh, min 220px, H1 + breadcrumb only) */
+  .page-banner {
+    min-height: 220px !important;
+    height: 32svh !important;
+    padding: 30px 0 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .page-banner-subtext,
+  .page-banner .btn {
+    display: none !important;
+  }
+  .page-banner-title {
+    font-size: 1.9rem !important;
+    margin: 2px 0 !important;
+  }
+  .breadcrumb {
+    font-size: 13px !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* 14. FORMS (/reserve and /parties) */
+  .form-control {
+    min-height: 48px !important;
+    height: 48px !important;
+    font-size: 16px !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+  }
+  .form-label {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    margin-bottom: 4px !important;
+    display: block !important;
+  }
+  .form-group {
+    margin-bottom: 12px !important;
+  }
+  .form-row-datetime {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .form-submit-btn {
+    width: 100% !important;
+    min-height: 52px !important;
+    height: 52px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    position: sticky !important;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+    z-index: 10 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  /* Choice Chips inside Form (/reserve) */
+  .table-choice-chips {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-top: 6px !important;
+  }
+  .table-choice-chip {
+    min-height: 64px !important;
+    padding: 6px 8px !important;
+    border: 1.5px solid var(--border-subtle) !important;
+    border-radius: 8px !important;
+    background: var(--white) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-align: left !important;
+    cursor: pointer !important;
+  }
+  .table-choice-chip.active {
+    border-color: var(--sun) !important;
+    background: rgba(201, 161, 90, 0.12) !important;
+    box-shadow: 0 2px 8px rgba(201, 161, 90, 0.2) !important;
+  }
+  .chip-thumb {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 6px !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+  }
+  .chip-thumb--icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(201, 161, 90, 0.15) !important;
+    font-size: 24px !important;
+  }
+  .chip-info {
+    min-width: 0 !important;
+    flex: 1 !important;
+  }
+  .chip-name {
+    display: block !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: var(--aegean) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .chip-sub {
+    display: block !important;
+    font-size: 11px !important;
+    color: var(--text-muted) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Parties Quick Facts swipe pills (/parties) */
+  .party-facts-row {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 8px !important;
+    padding: 8px 20px !important;
+    margin: 0 -20px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .party-facts-row::-webkit-scrollbar {
+    display: none !important;
+  }
+  .party-fact-pill {
+    flex: 0 0 auto !important;
+    scroll-snap-align: start !important;
+    background: rgba(18, 53, 91, 0.08) !important;
+    border: 1px solid rgba(18, 53, 91, 0.15) !important;
+    border-radius: 20px !important;
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--aegean) !important;
+    white-space: nowrap !important;
+  }
+
+  /* Menu Tabs Sticky Row & Fade Gradient (/menu) */
+  .menu-tabs-wrapper {
+    position: sticky !important;
+    top: 56px !important;
+    z-index: 90 !important;
+    background: var(--chalk) !important;
+    padding: 8px 0 !important;
+  }
+  .menu-tabs-wrapper::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 32px !important;
+    background: linear-gradient(to right, transparent, var(--chalk)) !important;
+    pointer-events: none !important;
+  }
+  .menu-tabs {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+    padding: 4px 20px !important;
+    scrollbar-width: none !important;
+  }
+  .menu-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+  .menu-item-row {
+    padding: 10px 0 !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+  }
+  .menu-item-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+  .menu-item-name-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+  }
+  .menu-item-name {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: var(--text-dark) !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .menu-item-price {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: var(--sun-hover) !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .menu-item-desc {
+    font-size: 13px !important;
+    color: var(--text-muted) !important;
+    margin-top: 2px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .menu-item-img {
+    display: none !important;
+  }
+}
+
+/* 50/50 Date and Time on screens >= 375px */
+@media (min-width: 375px) and (max-width: 767px) {
+  .form-row-datetime {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+}

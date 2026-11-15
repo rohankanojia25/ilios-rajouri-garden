@@ -179,6 +179,28 @@
 
   <!-- Mobile Full-Screen Overlay -->
   <div class="mobile-overlay" id="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-overlay-header">
+      <a href="/" class="brand-logo" aria-label="ilios homepage">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span>ilios</span>
+      </a>
+      <button type="button" class="mobile-overlay-close" id="mobile-overlay-close-btn" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
     <ul class="mobile-accordion-list">
       <li>
         <button type="button" class="mobile-accordion-header">
@@ -267,7 +289,8 @@
 
       <div class="hero-content">
         <div class="hero-eyebrow">
-          RING ROAD · RAJOURI GARDEN · SINCE 2023
+          <span class="eyebrow-desktop">RING ROAD · RAJOURI GARDEN · SINCE 2023</span>
+          <span class="eyebrow-mobile">RAJOURI GARDEN · RING ROAD</span>
         </div>
         <h1 class="hero-title">
           Santorini, right here on Ring Road.
@@ -278,16 +301,18 @@
 
         <!-- Live Status Chips -->
         <div class="hero-chips-row">
-          <span class="hero-chip" id="hero-event-chip">🎶 Tonight: Sufi Night · 8:30 PM</span>
-          <span class="hero-chip">≈ ₹1,000 for two</span>
+          <span class="hero-chip hero-chip--desktop" id="hero-event-chip">🎶 Tonight: Sufi Night · 8:30 PM</span>
+          <span class="hero-chip hero-chip--desktop">≈ ₹1,000 for two</span>
+          <span class="hero-chip hero-chip--mobile" id="hero-single-chip">Tonight 5:30 PM · Sundowner · ≈₹1,000 for two</span>
         </div>
 
         <div class="hero-actions">
-          <button type="button" class="btn btn-primary" onclick="openWhatsApp('quick', {}, 'hero')">
+          <button type="button" class="btn btn-primary hero-btn-reserve" onclick="openWhatsApp('quick', {}, 'hero')">
             Reserve on WhatsApp
           </button>
-          <a href="/menu" class="btn btn-outline-light">
-            View Menu
+          <a href="/menu" class="hero-menu-link btn btn-outline-light">
+            <span class="btn-text-desktop">View Menu</span>
+            <span class="link-text-mobile">View Menu →</span>
           </a>
         </div>
       </div>
@@ -311,8 +336,8 @@
             <div class="stat-label">Google reviews</div>
           </div>
           <div class="stat-item reveal">
-            <div class="stat-number">Every</div>
-            <div class="stat-label">Live music every weekend</div>
+            <div class="stat-number">Live</div>
+            <div class="stat-label">music every weekend</div>
           </div>
           <div class="stat-item reveal">
             <div class="stat-number"><span class="counter" data-target="3">0</span></div>
@@ -336,17 +361,19 @@
           <article class="dish-card card-hover reveal">
             <!-- REPLACE: Lotus stem photo (800x1000) -->
             <div class="dish-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" 
+              <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" 
                    alt="Crispy Lotus Stem Honey Chilli" width="600" height="480" loading="lazy">
             </div>
             <div class="dish-content">
               <div class="dish-header">
-                <h3 class="dish-title">Lotus Stem Honey Chilli</h3>
+                <div class="dish-title-wrap">
+                  <span class="diet-icon diet-icon--veg" title="Vegetarian"></span>
+                  <h3 class="dish-title">Lotus Stem Honey Chilli</h3>
+                </div>
                 <!-- CONFIRM: Price -->
                 <span class="dish-price">₹425</span>
               </div>
               <p class="dish-desc">Crispy lotus stem tossed in sweet-spicy honey chilli.</p>
-              <div><span class="diet-icon diet-icon--veg" title="Vegetarian"></span></div>
             </div>
           </article>
 
@@ -359,12 +386,14 @@
             </div>
             <div class="dish-content">
               <div class="dish-header">
-                <h3 class="dish-title">Chicken Tikka Tacos</h3>
+                <div class="dish-title-wrap">
+                  <span class="diet-icon diet-icon--nonveg" title="Non-Vegetarian"></span>
+                  <h3 class="dish-title">Chicken Tikka Tacos</h3>
+                </div>
                 <!-- CONFIRM: Price -->
                 <span class="dish-price">₹545</span>
               </div>
               <p class="dish-desc">Grilled chicken tikka with pickled onion and mint drizzle in flour tortillas.</p>
-              <div><span class="diet-icon diet-icon--nonveg" title="Non-Vegetarian"></span></div>
             </div>
           </article>
 
@@ -372,20 +401,23 @@
           <article class="dish-card card-hover reveal">
             <!-- REPLACE: Avocado Toast photo (800x1000) -->
             <div class="dish-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80" 
+              <img src="https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?auto=format&fit=crop&w=600&q=80" 
                    alt="Avocado Toast on Sourdough" width="600" height="480" loading="lazy">
             </div>
             <div class="dish-content">
               <div class="dish-header">
-                <h3 class="dish-title">Avocado Toast on Sourdough</h3>
+                <div class="dish-title-wrap">
+                  <span class="diet-icon diet-icon--veg" title="Vegetarian"></span>
+                  <h3 class="dish-title">Avocado Toast on Sourdough</h3>
+                </div>
                 <!-- CONFIRM: Price -->
                 <span class="dish-price">₹495</span>
               </div>
               <p class="dish-desc">Smashed avocado with feta, tomatoes and greens on toasted sourdough.</p>
-              <div><span class="diet-icon diet-icon--veg" title="Vegetarian"></span></div>
             </div>
           </article>
         </div>
+        <div class="swipe-peek-note" aria-hidden="true"><span>← Swipe to explore dishes (1/3) →</span></div>
 
         <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
           <a href="/menu" class="btn btn-outline-aegean">See the full menu →</a>
@@ -503,7 +535,7 @@
           <h2 class="section-title">A look inside</h2>
         </div>
 
-        <div style="display:flex; gap:1.25rem; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:1rem; scrollbar-width:none;">
+        <div class="gallery-strip-row" style="display:flex; gap:1.25rem; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:1rem; scrollbar-width:none;">
           <div style="flex:0 0 280px; scroll-snap-align:start;" class="gallery-item card-hover">
             <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80" alt="Rooftop terrace" loading="lazy">
           </div>
@@ -532,7 +564,7 @@
           <h2 class="section-title">4.7★ from 4,900+ guests on Google</h2>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
+        <div class="reviews-swipe-row" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
           <!-- Card 1 -->
           <article class="review-card reveal">
             <div class="review-stars">★★★★★</div>
@@ -566,8 +598,8 @@
         </div>
 
         <div style="text-align: center; margin-top: 2rem;" class="reveal">
-          <a href="https://www.google.com/maps/search/?api=1&query=ilios+C-6%2F1+Ring+Rd+Mansarover+Garden+New+Delhi" target="_blank" rel="noopener noreferrer" class="btn btn-outline-aegean">
-            Read all reviews on Google
+          <a href="https://www.google.com/maps/search/?api=1&query=ilios+C-6%2F1+Ring+Rd+Mansarover+Garden+New+Delhi" target="_blank" rel="noopener noreferrer" class="btn btn-outline-aegean review-link-under">
+            Read all reviews on Google →
           </a>
         </div>
       </div>
@@ -576,14 +608,14 @@
     <!-- 4.8 PARTY BANNER -->
     <section class="section-pad live-nights-bg" id="parties-teaser">
       <div class="container" style="text-align:center;">
-        <div class="reveal" style="max-width:700px; margin:0 auto;">
+        <div class="party-teaser-box reveal" style="max-width:700px; margin:0 auto;">
           <span class="eyebrow eyebrow--night">Celebrations</span>
-          <h2 class="section-title section-title--night">Planning a party? We'll host it.</h2>
+          <h2 class="section-title section-title--night">Planning a party?</h2>
           <!-- CONFIRM: Inclusions -->
-          <p class="section-subtitle section-subtitle--night" style="margin-bottom:2rem;">
-            Birthdays, corporate nights, anniversaries and kitty parties, with a stage, music and set menus.
+          <p class="section-subtitle section-subtitle--night" style="margin-bottom:1.5rem;">
+            Birthdays, corporate nights, anniversaries and kitty parties with set menus.
           </p>
-          <a href="/parties" class="btn btn-primary">Plan your party →</a>
+          <a href="/parties" class="btn btn-primary party-teaser-btn">Get a WhatsApp quote</a>
         </div>
       </div>
     </section>
@@ -592,32 +624,27 @@
     <section class="section-pad" id="visit-teaser">
       <div class="container">
         <div class="visit-card reveal" style="max-width:840px; margin:0 auto;">
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:2rem;">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; align-items:center;">
             <div>
               <span class="eyebrow">Location</span>
               <h3 style="font-family:var(--font-display); font-size:1.8rem; color:var(--aegean); margin-bottom:0.5rem;">Find us on Ring Road</h3>
-              <p style="font-size:0.95rem; color:var(--text-dark); margin-bottom:0.5rem;">
+              <p class="visit-address" style="font-size:0.95rem; color:var(--text-dark); margin-bottom:0.35rem;">
                 C-6/1, Ring Road, near Mayapuri Chowk Flyover, Mansarover Garden, Rajouri Garden, New Delhi 110015
               </p>
-              <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">
+              <p class="visit-timings" style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem;">
                 <!-- CONFIRM: Timings -->
                 12 noon – 12 midnight, all 7 days
               </p>
-              <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem;">
-                <!-- CONFIRM: Walking distance -->
-                Nearest metro: Mayapuri (Pink Line) · Rajouri Garden interchange nearby.
-              </p>
-              <p style="font-size:0.85rem; color:var(--text-muted);">
-                <!-- CONFIRM: Parking -->
-                Parking is limited nearby. Call us and we'll tell you the easiest spot.
-              </p>
+              <div>
+                <a href="/visit#directions" class="visit-more-link">More details (Metro &amp; Parking) →</a>
+              </div>
             </div>
-            <div style="display:flex; flex-direction:column; justify-content:center; gap:1rem;">
-              <a href="https://www.google.com/maps/dir/?api=1&destination=ilios+C-6/1+Ring+Rd+Mansarover+Garden+New+Delhi" target="_blank" rel="noopener noreferrer" class="btn btn-outline-aegean directions-link" data-source="home_visit">
+            <div class="visit-action-buttons">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=ilios+C-6/1+Ring+Rd+Mansarover+Garden+New+Delhi" target="_blank" rel="noopener noreferrer" class="btn btn-outline-aegean directions-link visit-btn-dir" data-source="home_visit">
                 Get Directions
               </a>
-              <a href="tel:+917065041400" class="btn btn-primary" data-source="home_visit">
-                Call +91 70650 41400
+              <a href="tel:+917065041400" class="btn btn-primary visit-btn-call" data-source="home_visit">
+                Call
               </a>
             </div>
           </div>
@@ -627,7 +654,7 @@
   </main>
 
   <!-- Closing CTA Band -->
-  <section class="cta-band">
+  <section class="cta-band" id="home-cta">
     <div class="container reveal">
       <span class="cta-band-hindi">Aaj ki shaam, Santorini wali.</span>
       <h2 class="cta-band-title">Your Santorini night is right on Ring Road.</h2>
@@ -669,7 +696,7 @@
 
         <div>
           <h4 class="footer-heading">Explore</h4>
-          <ul class="footer-links-list">
+          <ul class="footer-links-list footer-explore-grid">
             <li><a href="/menu">Menu &amp; Signatures</a></li>
             <li><a href="/live-nights">Live Sufi &amp; Bands</a></li>
             <li><a href="/parties">Party Venue &amp; Packages</a></li>
