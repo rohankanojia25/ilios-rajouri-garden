@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- SEO Primary Tags -->
-  <title>ilios Rajouri Garden | Santorini Rooftop Lounge, Live Sufi Nights &amp; Party Venue, Delhi</title>
-  <meta name="description" content="Santorini-style rooftop lounge on Ring Road, Rajouri Garden. Multi-cuisine food, live Sufi and band nights, and direct table booking on WhatsApp.">
-  <meta name="keywords" content="lounge in Rajouri Garden, Greek restaurant West Delhi, Santorini cafe Delhi, rooftop restaurant Rajouri Garden, Sufi night Rajouri Garden, live music restaurant West Delhi, party venue Rajouri Garden, birthday party place near Mayapuri, corporate party venue West Delhi">
+  <title>ilios Rajouri Garden | Santorini Rooftop Lounge, Cocoon Seating &amp; Live Nights, Delhi</title>
+  <meta name="description" content="Santorini-style rooftop lounge on Ring Road, Rajouri Garden. Wicker cocoon pods, pink shutters, multi-cuisine dining and direct table booking on WhatsApp.">
+  <meta name="keywords" content="cocoon seating rooftop Rajouri Garden, rooftop lounge Rajouri Garden, Greek restaurant West Delhi, Santorini cafe Delhi, Sufi night Rajouri Garden, live music restaurant West Delhi, party venue Rajouri Garden, birthday party place near Mayapuri">
   <meta name="author" content="ilios Lounge &amp; Kitchen">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://iliosdelhi.com/">
@@ -16,8 +16,8 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="restaurant">
   <meta property="og:title" content="ilios Rajouri Garden | Santorini on Ring Road">
-  <meta property="og:description" content="Whitewashed arches, live Sufi and band nights, and a table waiting for you. Ring Road, Rajouri Garden, New Delhi.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&h=630&q=80">
+  <meta property="og:description" content="Wicker cocoon pods, pink shutters and a rooftop that glows after sunset. Ring Road, Rajouri Garden, New Delhi.">
+  <meta property="og:image" content="/assets/img/og-image.webp">
   <meta property="og:url" content="https://iliosdelhi.com/">
   <meta property="og:site_name" content="ilios">
   <meta property="og:locale" content="en_IN">
@@ -25,15 +25,16 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ilios Rajouri Garden | Santorini on Ring Road">
-  <meta name="twitter:description" content="Whitewashed arches, live Sufi and band nights, and direct table booking on WhatsApp.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&h=630&q=80">
+  <meta name="twitter:description" content="Wicker cocoon pods, pink shutters and a rooftop that glows after sunset. Book direct on WhatsApp.">
+  <meta name="twitter:image" content="/assets/img/og-image.webp">
 
   <meta name="theme-color" content="#0B1626">
 
   <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1400&q=80">
+  <link rel="preload" as="image" href="/assets/img/hero-mobile.webp" media="(max-width: 767px)">
+  <link rel="preload" as="image" href="/assets/img/hero.webp" media="(min-width: 768px)">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/styles.css">
@@ -46,7 +47,7 @@
     "@id": "https://iliosdelhi.com/#restaurant",
     "name": "ilios",
     "alternateName": "ilios Lounge & Kitchen",
-    "image": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=80",
+    "image": "https://iliosdelhi.com/assets/img/og-image.webp",
     "telephone": "+917065041400",
     "url": "https://iliosdelhi.com/",
     "servesCuisine": ["Continental", "Italian", "Oriental", "North Indian"],
@@ -274,15 +275,19 @@
   <main id="main">
     <!-- 4.1 HERO (Strict Rules Compliant) -->
     <section class="hero-section" id="hero" aria-label="Welcome to ilios">
-      <!-- Real ilios rooftop & dining lounge photo -->
+      <!-- Real ilios rooftop & dining lounge photo (Responsive picture) -->
       <div class="hero-bg-wrapper">
-        <img src="/assets/images/hero-real-ilios.jpg" 
-             alt="ilios Greek rooftop lounge with whitewashed arches and outdoor seating in Rajouri Garden" 
-             class="hero-bg-img" 
-             width="1400" 
-             height="900" 
-             loading="eager"
-             onerror="this.src='https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1400&q=80';">
+        <picture>
+          <source media="(max-width: 767px)" srcset="/assets/img/hero-mobile.webp" width="900" height="1200">
+          <source media="(max-width: 1280px)" srcset="/assets/img/hero-1280.webp" width="1280" height="853">
+          <img src="/assets/img/hero.webp" 
+               alt="Santorini-inspired ilios rooftop with neon sign, pink shutters and evening dining" 
+               class="hero-bg-img" 
+               width="1920" 
+               height="1080" 
+               loading="eager"
+               decoding="async">
+        </picture>
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-overlay-tint"></div>
@@ -296,7 +301,7 @@
           Santorini, right here on Ring Road.
         </h1>
         <p class="hero-subtext">
-          Whitewashed arches, live Sufi and band nights, and a table waiting for you.
+          Wicker cocoon pods, pink shutters and a rooftop that glows after sunset.
         </p>
 
         <!-- Live Status Chips -->
@@ -357,14 +362,21 @@
         </div>
 
         <div class="dishes-grid">
+          <!-- REPLACE: add real dish photos (800×600 WebP) when the owner sends them -->
           <!-- Lotus Stem -->
-          <article class="dish-card card-hover reveal">
-            <!-- REPLACE: Lotus stem photo (800x1000) -->
-            <div class="dish-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" 
-                   alt="Crispy Lotus Stem Honey Chilli" width="600" height="480" loading="lazy">
-            </div>
+          <article class="dish-card dish-card--text card-hover reveal">
             <div class="dish-content">
+              <svg class="dish-sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
               <div class="dish-header">
                 <div class="dish-title-wrap">
                   <span class="diet-icon diet-icon--veg" title="Vegetarian"></span>
@@ -378,13 +390,19 @@
           </article>
 
           <!-- Chicken Tikka Tacos -->
-          <article class="dish-card card-hover reveal">
-            <!-- REPLACE: Chicken Tikka Tacos photo (800x1000) -->
-            <div class="dish-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" 
-                   alt="Chicken Tikka Tacos" width="600" height="480" loading="lazy">
-            </div>
+          <article class="dish-card dish-card--text card-hover reveal">
             <div class="dish-content">
+              <svg class="dish-sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
               <div class="dish-header">
                 <div class="dish-title-wrap">
                   <span class="diet-icon diet-icon--nonveg" title="Non-Vegetarian"></span>
@@ -398,13 +416,19 @@
           </article>
 
           <!-- Avocado Toast -->
-          <article class="dish-card card-hover reveal">
-            <!-- REPLACE: Avocado Toast photo (800x1000) -->
-            <div class="dish-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?auto=format&fit=crop&w=600&q=80" 
-                   alt="Avocado Toast on Sourdough" width="600" height="480" loading="lazy">
-            </div>
+          <article class="dish-card dish-card--text card-hover reveal">
             <div class="dish-content">
+              <svg class="dish-sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
               <div class="dish-header">
                 <div class="dish-title-wrap">
                   <span class="diet-icon diet-icon--veg" title="Vegetarian"></span>
@@ -482,45 +506,63 @@
         </div>
 
         <div class="vip-tables-grid">
-          <!-- Rooftop Corner -->
+          <!-- Cocoon Pod -->
           <article class="table-card card-hover reveal">
             <div class="table-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80" 
-                   alt="Rooftop Santorini Corner table" width="600" height="375" loading="lazy">
+              <img src="/assets/img/table-cocoon-pod.webp" 
+                   alt="Wicker cocoon pod on the ilios rooftop, Rajouri Garden" 
+                   width="800" height="500" loading="lazy" decoding="async">
             </div>
             <div class="table-content">
               <span class="table-capacity">2–4 guests</span>
-              <h3 class="table-type-title">Rooftop Santorini Corner</h3>
-              <p class="table-desc">Open-air corner with the dome-and-arch photo angle. Made for dates.</p>
-              <a href="/reserve?table=rooftop-corner" class="btn btn-outline-aegean" style="margin-top:auto;">Choose this table</a>
+              <h3 class="table-type-title">Cocoon Pod</h3>
+              <p class="table-desc">Sit inside a wicker cocoon on the rooftop. Cosy, private, made for dates.</p>
+              <a href="/reserve?table=cocoon-pod" class="btn btn-outline-aegean" style="margin-top:auto;">Choose this table</a>
             </div>
           </article>
 
-          <!-- Arch Booth -->
+          <!-- The Ring Daybed -->
           <article class="table-card card-hover reveal">
             <div class="table-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80" 
-                   alt="The Arch Booth seating" width="600" height="375" loading="lazy">
+              <img src="/assets/img/table-ring-daybed.webp" 
+                   alt="The Ring Daybed under circular wooden arch at ilios" 
+                   width="800" height="500" loading="lazy" decoding="async">
             </div>
             <div class="table-content">
               <span class="table-capacity">4–6 guests</span>
-              <h3 class="table-type-title">The Arch Booth</h3>
-              <p class="table-desc">Cushioned booth under the whitewashed arches. Best for friend groups.</p>
-              <a href="/reserve?table=arch-booth" class="btn btn-outline-aegean" style="margin-top:auto;">Choose this table</a>
+              <h3 class="table-type-title">The Ring Daybed</h3>
+              <p class="table-desc">Cushioned round daybed under the wooden arch. Best for friend groups.</p>
+              <a href="/reserve?table=ring-daybed" class="btn btn-outline-aegean" style="margin-top:auto;">Choose this table</a>
             </div>
           </article>
 
-          <!-- Stage-Side Table -->
+          <!-- Pink Shutter Terrace -->
           <article class="table-card card-hover reveal">
             <div class="table-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" 
-                   alt="Stage-side table arrangement" width="600" height="375" loading="lazy">
+              <img src="/assets/img/table-pink-shutter-terrace.webp" 
+                   alt="Open-air tables by pink shutters and bougainvillea on ilios terrace" 
+                   width="800" height="500" loading="lazy" decoding="async">
             </div>
             <div class="table-content">
-              <span class="table-capacity">6–10 guests</span>
-              <h3 class="table-type-title">Stage-Side Table</h3>
-              <p class="table-desc">Right by the stage on live nights. Book early on weekends.</p>
-              <a href="/reserve?table=stage-side" class="btn btn-outline-aegean" style="margin-top:auto;">Choose this table</a>
+              <span class="table-capacity">2–8 guests</span>
+              <h3 class="table-type-title">Pink Shutter Terrace</h3>
+              <p class="table-desc">Open-air tables by the pink shutters and bougainvillea.</p>
+              <a href="/reserve?table=pink-shutter-terrace" class="btn btn-outline-aegean" style="margin-top:auto;">Choose this table</a>
+            </div>
+          </article>
+
+          <!-- Indoor Lantern Room -->
+          <article class="table-card card-hover reveal">
+            <div class="table-img-box img-frame">
+              <img src="/assets/img/table-indoor-lantern-room.webp" 
+                   alt="Warm indoor dining room under yellow wicker lanterns at ilios" 
+                   width="800" height="500" loading="lazy" decoding="async">
+            </div>
+            <div class="table-content">
+              <span class="table-capacity">2–10 guests</span>
+              <h3 class="table-type-title">Indoor Lantern Room</h3>
+              <p class="table-desc">Warm indoor tables under yellow wicker lanterns. Good for families and cooler nights.</p>
+              <a href="/reserve?table=indoor-lantern-room" class="btn btn-outline-aegean" style="margin-top:auto;">Choose this table</a>
             </div>
           </article>
         </div>
@@ -536,17 +578,37 @@
         </div>
 
         <div class="gallery-strip-row" style="display:flex; gap:1.25rem; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:1rem; scrollbar-width:none;">
+          <!-- Photo 01 -->
           <div style="flex:0 0 280px; scroll-snap-align:start;" class="gallery-item card-hover">
-            <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80" alt="Rooftop terrace" loading="lazy">
+            <img src="/assets/img/gallery-01-rooftop-pods-dusk.webp" 
+                 srcset="/assets/img/gallery-01-rooftop-pods-dusk-600.webp 600w, /assets/img/gallery-01-rooftop-pods-dusk.webp 1200w"
+                 sizes="(max-width: 767px) 80vw, 300px"
+                 alt="Wicker cocoon pods glowing at dusk on the ilios rooftop, Rajouri Garden" 
+                 width="600" height="400" loading="lazy" decoding="async">
           </div>
+          <!-- Photo 02 -->
           <div style="flex:0 0 280px; scroll-snap-align:start;" class="gallery-item card-hover">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Whitewashed arches" loading="lazy">
+            <img src="/assets/img/gallery-02-rooftop-night.webp" 
+                 srcset="/assets/img/gallery-02-rooftop-night-600.webp 600w, /assets/img/gallery-02-rooftop-night.webp 1200w"
+                 sizes="(max-width: 767px) 80vw, 300px"
+                 alt="Night ambiance on the ilios rooftop with illuminated cocoon seating and Ring Road city view" 
+                 width="600" height="400" loading="lazy" decoding="async">
           </div>
+          <!-- Photo 04 -->
           <div style="flex:0 0 280px; scroll-snap-align:start;" class="gallery-item card-hover">
-            <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80" alt="Arch booth seating" loading="lazy">
+            <img src="/assets/img/gallery-04-pink-shutters.webp" 
+                 srcset="/assets/img/gallery-04-pink-shutters-600.webp 600w, /assets/img/gallery-04-pink-shutters.webp 1200w"
+                 sizes="(max-width: 767px) 80vw, 300px"
+                 alt="Pink shutters and driftwood screens on the ilios terrace" 
+                 width="600" height="400" loading="lazy" decoding="async">
           </div>
+          <!-- Photo 08 -->
           <div style="flex:0 0 280px; scroll-snap-align:start;" class="gallery-item card-hover">
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" alt="Bar counter" loading="lazy">
+            <img src="/assets/img/gallery-08-cocoon-pod.webp" 
+                 srcset="/assets/img/gallery-08-cocoon-pod-500.webp 500w, /assets/img/gallery-08-cocoon-pod.webp 1000w"
+                 sizes="(max-width: 767px) 80vw, 300px"
+                 alt="Private wicker cocoon pod for intimate dining and dates on the rooftop" 
+                 width="500" height="667" loading="lazy" decoding="async">
           </div>
         </div>
 

@@ -14,8 +14,14 @@
   <meta property="og:type" content="restaurant">
   <meta property="og:title" content="Visit ilios | Rajouri Garden, Ring Road">
   <meta property="og:description" content="Address, timings, metro connectivity, parking assistance and guest reviews.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&h=630&q=80">
+  <meta property="og:image" content="/assets/img/og-image.webp">
   <meta property="og:url" content="https://iliosdelhi.com/visit">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Visit ilios | Rajouri Garden, Ring Road">
+  <meta name="twitter:description" content="Address, timings, metro connectivity, parking assistance and guest reviews.">
+  <meta name="twitter:image" content="/assets/img/og-image.webp">
 
   <meta name="theme-color" content="#0B1626">
 
@@ -236,7 +242,10 @@
     <!-- Banner -->
     <header class="page-banner">
       <div class="page-banner-bg">
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&h=700&q=80" alt="ilios lounge entrance and arches" loading="eager">
+        <picture>
+          <source media="(max-width: 767px)" srcset="/assets/img/banner-visit-800.webp">
+          <img src="/assets/img/banner-visit.webp" srcset="/assets/img/banner-visit-800.webp 800w, /assets/img/banner-visit.webp 1600w" sizes="100vw" width="1600" height="700" alt="ilios lounge entrance and rooftop dining in Rajouri Garden" loading="eager" decoding="async">
+        </picture>
       </div>
       <div class="page-banner-overlay"></div>
       <div class="page-banner-content">
@@ -305,7 +314,7 @@
                 <span class="loc-label">Parking Notice</span>
                 <!-- CONFIRM: Parking details -->
                 <p class="loc-val">Parking is limited nearby.</p>
-                <span class="loc-sub">Call us at <a href="tel:+917065041400" style="color:var(--dome); font-weight:700;">+91 70650 41400</a> and we'll tell you the easiest spot.</span>
+                <span class="loc-sub">Call us at <a href="tel:+917065041400" style="color:var(--rose); font-weight:700;">+91 70650 41400</a> and we'll tell you the easiest spot.</span>
               </div>
             </div>
 
@@ -338,10 +347,8 @@
     <section class="section-pad" style="background-color:var(--chalk-pure);" id="story">
       <div class="container">
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:3rem; align-items:center;">
-          <!-- FIXED Story Image (No empty gradient) -->
-          <!-- REPLACE: Real story photo (900x1200) -->
           <div class="img-frame arch-frame reveal">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&h=850&q=80" alt="Whitewashed interior of ilios" loading="lazy">
+            <img src="/assets/img/story.webp" width="900" height="1200" alt="ilios rooftop lounge and dining spaces in Rajouri Garden" loading="lazy" decoding="async">
           </div>
 
           <div class="reveal">
@@ -349,10 +356,13 @@
             <h2 class="section-title">West Delhi's own slice of the Greek islands, since 2023</h2>
             <!-- Trimmed story copy (~120 words) -->
             <p style="color:var(--text-dark); margin-bottom:1rem; line-height:1.65;">
-              In Greek, <em>ilios</em> means the sun. We built this space for people who want the whitewashed walls, golden ambient glow and breezy serenity of Santorini without boarding a flight.
+              In Greek, <em>ilios</em> means the sun. We built this space with white walls, pink shutters, wicker pods and warm lights for people who want the breezy serenity of Santorini without boarding a flight.
+            </p>
+            <p style="color:var(--text-dark); margin-bottom:1rem; line-height:1.65;">
+              Upstairs, wicker cocoon pods and a ring daybed; inside, a lantern-lit room and the bar. Opened on Ring Road in Rajouri Garden in 2023, ilios quickly became a favorite for weekend friend dinners, birthday milestones and live Sufi nights.
             </p>
             <p style="color:var(--text-dark); margin-bottom:1.5rem; line-height:1.65;">
-              Opened on Ring Road in Rajouri Garden in 2023, ilios quickly became a favorite for weekend friend dinners, birthday milestones and live Sufi nights. As love for the space grew, ilios expanded to Greater Kailash in South Delhi and Gurugram at M3M Broadway.
+              As love for the space grew, ilios expanded to Greater Kailash in South Delhi and Gurugram at M3M Broadway.
             </p>
             <div>
               <a href="/reserve" class="btn btn-primary">Reserve a Table</a>

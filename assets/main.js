@@ -561,9 +561,10 @@
     var tableParam = urlParams.get('table');
 
     var paramMap = {
-      'rooftop-corner': 'Rooftop Santorini Corner',
-      'arch-booth': 'The Arch Booth',
-      'stage-side': 'Stage-Side Table',
+      'cocoon-pod': 'Cocoon Pod',
+      'ring-daybed': 'The Ring Daybed',
+      'pink-shutter-terrace': 'Pink Shutter Terrace',
+      'indoor-lantern-room': 'Indoor Lantern Room',
       'no-preference': 'No preference'
     };
 
@@ -582,9 +583,10 @@
   window.selectBookingTable = function (slug) {
     var tableSelect = document.getElementById('book-table-type');
     var paramMap = {
-      'rooftop-corner': 'Rooftop Santorini Corner',
-      'arch-booth': 'The Arch Booth',
-      'stage-side': 'Stage-Side Table',
+      'cocoon-pod': 'Cocoon Pod',
+      'ring-daybed': 'The Ring Daybed',
+      'pink-shutter-terrace': 'Pink Shutter Terrace',
+      'indoor-lantern-room': 'Indoor Lantern Room',
       'no-preference': 'No preference'
     };
     var selectedName = paramMap[slug] || 'No preference';
@@ -749,8 +751,8 @@
         var filter = chip.getAttribute('data-filter');
 
         galleryItems.forEach(function (item) {
-          var itemCategory = item.getAttribute('data-category');
-          if (filter === 'all' || itemCategory === filter) {
+          var itemCategory = item.getAttribute('data-category') || '';
+          if (filter === 'all' || itemCategory === filter || itemCategory.split(/\s+/).indexOf(filter) !== -1) {
             item.style.display = '';
           } else {
             item.style.display = 'none';

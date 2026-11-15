@@ -9,16 +9,13 @@
 /* ---------------------------------------------------------------------------
  * IMAGE SLOTS — Required Assets & Recommended Sizes
  * ---------------------------------------------------------------------------
- *   hero              1920 × 1080 (desktop)  ·  768 × 1024 (mobile)
- *   page banners      1600 × 700  (one per page: menu, parties, gallery …)
- *   signature dishes  800 × 1000  (×6 — one per signature item)
- *   tables            800 × 1000  (×3 — one per table card)
- *   gallery           mixed       (×12+ — landscape and portrait mix)
- *   story             900 × 1200  (about / story section)
- *   og-image          1200 × 630  (social sharing preview)
- *
- *   ⚠  REPLACE: stock Santorini / Greece photos must NOT stay on the live
- *      site. Use real ilios photos only.
+ *   hero              1920 × 1080 (desktop) · 1280 × 800 · 900 × 1200 (mobile)
+ *   page banners      1600 × 700 / 800 × 350 WebP
+ *   signature dishes  REPLACE: add real dish photos (800×600 WebP) when owner sends them
+ *   tables            table-*.webp (real photos in /assets/img/)
+ *   gallery           gallery-*.webp (real photos in /assets/img/)
+ *   story             story.webp (1200 × 800 WebP)
+ *   og-image          og-image.webp (1200 × 630 WebP)
  * ------------------------------------------------------------------------- */
 
 
@@ -370,32 +367,40 @@ const MENU = [
 /* ---------------------------------------------------------------------------
  * 4. TABLES — Reservable Table Types
  * ---------------------------------------------------------------------------
- *   ⚠  REPLACE: images with real ilios photos
+ *   Real ilios Seating Configurations
  * ------------------------------------------------------------------------- */
 const TABLES = [
   {
-    slug:   "rooftop-corner",
-    name:   "Rooftop Santorini Corner",
-    guests: "2–4 guests",
-    desc:   "Open-air corner with the dome-and-arch photo angle. Made for dates.",
-    image:  "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80",
-    perks:  ["Iconic photo spot", "Open-air breeze"]
+    slug:   "cocoon-pod",
+    name:   "Cocoon Pod",
+    guests: "2–4 guests", // CONFIRM: guest count
+    desc:   "Sit inside a wicker cocoon on the rooftop. Cosy, private, made for dates.",
+    image:  "/assets/img/table-cocoon-pod.webp",
+    perks:  ["Wicker cocoon privacy", "Iconic date-night spot"]
   },
   {
-    slug:   "arch-booth",
-    name:   "The Arch Booth",
-    guests: "4–6 guests",
-    desc:   "Cushioned booth under the whitewashed arches. Best for friend groups.",
-    image:  "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80",
-    perks:  ["Cosy booth seating", "Arch photo angle"]
+    slug:   "ring-daybed",
+    name:   "The Ring Daybed",
+    guests: "4–6 guests", // CONFIRM: guest count
+    desc:   "Cushioned round daybed under the wooden arch. Best for friend groups.",
+    image:  "/assets/img/table-ring-daybed.webp",
+    perks:  ["Circular cushioned daybed", "Wooden ring arch"]
   },
   {
-    slug:   "stage-side",
-    name:   "Stage-Side Table",
-    guests: "6–10 guests",
-    desc:   "Right by the stage on live nights. Book early on weekends.",
-    image:  "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
-    perks:  ["Direct stage view", "Best for live nights"]
+    slug:   "pink-shutter-terrace",
+    name:   "Pink Shutter Terrace",
+    guests: "2–8 guests", // CONFIRM: guest count
+    desc:   "Open-air tables by the pink shutters and bougainvillea.",
+    image:  "/assets/img/table-pink-shutter-terrace.webp",
+    perks:  ["Open-air rooftop terrace", "Pink shutters & bougainvillea"]
+  },
+  {
+    slug:   "indoor-lantern-room",
+    name:   "Indoor Lantern Room",
+    guests: "2–10 guests", // CONFIRM: guest count
+    desc:   "Warm indoor tables under yellow wicker lanterns. Good for families and cooler nights.",
+    image:  "/assets/img/table-indoor-lantern-room.webp",
+    perks:  ["Yellow wicker lanterns", "Air-conditioned indoor dining"]
   }
 ];
 
@@ -485,28 +490,107 @@ const REVIEWS = [
 /* ---------------------------------------------------------------------------
  * 7. GALLERY — Image Grid Items
  * ---------------------------------------------------------------------------
- *   ⚠  REPLACE: all gallery images with real ilios photos
+ *   Real ilios Photos (Categories: rooftop, seating, indoor, food)
  * ------------------------------------------------------------------------- */
 const GALLERY = [
   /* Rooftop */
-  { src: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=900&q=80",  alt: "Rooftop dining area with blue dome",          caption: "Santorini-style rooftop",      category: "rooftop" },
-  { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",  alt: "Rooftop seating at golden hour",              caption: "Golden hour on the terrace",    category: "rooftop" },
-  { src: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80",  alt: "Open-air terrace with string lights",         caption: "Evening lights",                category: "rooftop" },
+  {
+    src: "/assets/img/gallery-01-rooftop-pods-dusk.webp",
+    srcset: "/assets/img/gallery-01-rooftop-pods-dusk-600.webp 600w, /assets/img/gallery-01-rooftop-pods-dusk.webp 1200w",
+    alt: "Wicker cocoon pods glowing at dusk on the ilios rooftop, Rajouri Garden",
+    caption: "Rooftop cocoon pods at dusk",
+    category: "rooftop"
+  },
+  {
+    src: "/assets/img/gallery-02-rooftop-night-600.webp",
+    srcset: "/assets/img/gallery-02-rooftop-night-600.webp 600w, /assets/img/gallery-02-rooftop-night.webp 1200w",
+    alt: "Night ambiance on the ilios rooftop with illuminated cocoon seating and Ring Road city view",
+    caption: "Rooftop night ambiance",
+    category: "rooftop"
+  },
+  {
+    src: "/assets/img/gallery-03-pods-courtyard-evening.webp",
+    srcset: "/assets/img/gallery-03-pods-courtyard-evening-600.webp 600w, /assets/img/gallery-03-pods-courtyard-evening.webp 1200w",
+    alt: "Courtyard and wicker pods in the evening light at ilios",
+    caption: "Pods courtyard in the evening",
+    category: "rooftop"
+  },
+  {
+    src: "/assets/img/gallery-04-pink-shutters.webp",
+    srcset: "/assets/img/gallery-04-pink-shutters-600.webp 600w, /assets/img/gallery-04-pink-shutters.webp 1200w",
+    alt: "Pink shutters and driftwood screens on the ilios terrace",
+    caption: "Pink shutters and terrace seating",
+    category: "rooftop"
+  },
+  {
+    src: "/assets/img/gallery-05-terrace-statue.webp",
+    srcset: "/assets/img/gallery-05-terrace-statue-600.webp 600w, /assets/img/gallery-05-terrace-statue.webp 1200w",
+    alt: "Classic Greek statue and floral arrangements on the ilios terrace",
+    caption: "Terrace statue and floral decor",
+    category: "rooftop"
+  },
+  {
+    src: "/assets/img/gallery-06-rooftop-day.webp",
+    srcset: "/assets/img/gallery-06-rooftop-day-600.webp 600w, /assets/img/gallery-06-rooftop-day.webp 1200w",
+    alt: "Daytime view of the breezy open-air ilios rooftop lounge",
+    caption: "Open-air rooftop by day",
+    category: "rooftop"
+  },
+  {
+    src: "/assets/img/gallery-09-staircase-night.webp",
+    srcset: "/assets/img/gallery-09-staircase-night-600.webp 600w, /assets/img/gallery-09-staircase-night.webp 1200w",
+    alt: "Spiral staircase illuminated at night on the ilios rooftop",
+    caption: "Spiral staircase at night",
+    category: "rooftop"
+  },
 
-  /* Arches */
-  { src: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=900&q=80",  alt: "Whitewashed archway seating",                  caption: "Under the arches",              category: "arches" },
-  { src: "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?auto=format&fit=crop&w=900&q=80",  alt: "Blue and white interior details",             caption: "Aegean interiors",              category: "arches" },
-  { src: "https://images.unsplash.com/photo-1504718855392-c0f33b372e72?auto=format&fit=crop&w=900&q=80",  alt: "Cushioned booth under arches",                caption: "Cosy booth seating",            category: "arches" },
+  /* Seating */
+  {
+    src: "/assets/img/gallery-07-ring-daybed.webp",
+    srcset: "/assets/img/gallery-07-ring-daybed-500.webp 500w, /assets/img/gallery-07-ring-daybed.webp 1000w",
+    alt: "The Ring Daybed with plush cushions and circular wooden arch at ilios",
+    caption: "The Ring Daybed",
+    category: "seating"
+  },
+  {
+    src: "/assets/img/gallery-08-cocoon-pod.webp",
+    srcset: "/assets/img/gallery-08-cocoon-pod-500.webp 500w, /assets/img/gallery-08-cocoon-pod.webp 1000w",
+    alt: "Private wicker cocoon pod for intimate dining and dates on the rooftop",
+    caption: "Private cocoon pod",
+    category: "seating"
+  },
 
-  /* Live */
-  { src: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=80",  alt: "Live musician performing on stage",           caption: "Live music night",              category: "live" },
-  { src: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=80",  alt: "Acoustic guitar performance",                 caption: "Acoustic set",                  category: "live" },
-  { src: "https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=900&q=80",  alt: "Stage lights during live event",              caption: "Stage-side atmosphere",         category: "live" },
+  /* Indoor & Bar */
+  {
+    src: "/assets/img/gallery-10-indoor-lanterns.webp",
+    srcset: "/assets/img/gallery-10-indoor-lanterns-600.webp 600w, /assets/img/gallery-10-indoor-lanterns.webp 1200w",
+    alt: "Indoor dining room with yellow wicker lanterns at ilios",
+    caption: "Indoor lantern dining room",
+    category: "indoor"
+  },
+  {
+    src: "/assets/img/gallery-11-bar.webp",
+    srcset: "/assets/img/gallery-11-bar-600.webp 600w, /assets/img/gallery-11-bar.webp 1200w",
+    alt: "ilios bar with a white scalloped counter",
+    caption: "The ilios bar",
+    category: "indoor"
+  },
 
-  /* Food */
-  { src: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=900&q=80",  alt: "Plated avocado toast on sourdough",           caption: "Avocado Toast",                 category: "food" },
-  { src: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80",  alt: "Grilled chicken tikka tacos",                   caption: "Chicken Tikka Tacos",           category: "food" },
-  { src: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80",  alt: "Flatbread pizza fresh from the oven",         caption: "Garden Flatbread Pizza",        category: "food" }
+  /* Food & Drinks */
+  {
+    src: "/assets/img/gallery-12-cocktail.webp",
+    srcset: "/assets/img/gallery-12-cocktail-500.webp 500w, /assets/img/gallery-12-cocktail.webp 1000w",
+    alt: "Refreshing handcrafted cocktail garnished with citrus at ilios",
+    caption: "Handcrafted cocktail",
+    category: "food"
+  },
+  {
+    src: "/assets/img/gallery-13-salad-and-drink.webp",
+    srcset: "/assets/img/gallery-13-salad-and-drink-500.webp 500w, /assets/img/gallery-13-salad-and-drink.webp 1000w",
+    alt: "Fresh salad platter and chilled drink served at ilios",
+    caption: "Fresh salad & drink",
+    category: "food"
+  }
 ];
 
 

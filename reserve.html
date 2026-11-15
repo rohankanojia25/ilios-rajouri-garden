@@ -5,17 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Reserve a Table at ilios Rajouri Garden | WhatsApp Booking</title>
-  <meta name="description" content="Book your table at ilios, Ring Road, Rajouri Garden, on WhatsApp. Choose the rooftop corner, an arch booth or a stage-side table for live nights.">
-  <meta name="keywords" content="book table Rajouri Garden, reserve table ilios, rooftop lounge booking West Delhi, live music table booking Delhi">
+  <title>Reserve a Table at ilios Rajouri Garden | Cocoon Pods &amp; Rooftop WhatsApp Booking</title>
+  <meta name="description" content="Book your table at ilios, Ring Road, Rajouri Garden, on WhatsApp. Choose a wicker cocoon pod, the ring daybed, pink shutter terrace or lantern room.">
+  <meta name="keywords" content="cocoon seating rooftop Rajouri Garden, book table Rajouri Garden, reserve table ilios, rooftop lounge booking West Delhi, live music table booking Delhi">
   <link rel="canonical" href="https://iliosdelhi.com/reserve">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Reserve a Table | ilios Rajouri Garden">
-  <meta property="og:description" content="Book your table directly on WhatsApp. Choose the rooftop corner, arch booth or stage-side table.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&h=630&q=80">
+  <meta property="og:description" content="Book your table directly on WhatsApp. Choose a wicker cocoon pod, the ring daybed, pink shutter terrace or indoor lantern room.">
+  <meta property="og:image" content="/assets/img/og-image.webp">
   <meta property="og:url" content="https://iliosdelhi.com/reserve">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reserve a Table | ilios Rajouri Garden">
+  <meta name="twitter:description" content="Book your table directly on WhatsApp. Choose a wicker cocoon pod, the ring daybed, pink shutter terrace or indoor lantern room.">
+  <meta name="twitter:image" content="/assets/img/og-image.webp">
 
   <meta name="theme-color" content="#0B1626">
 
@@ -236,7 +242,13 @@
     <!-- Banner -->
     <header class="page-banner">
       <div class="page-banner-bg">
-        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1600&h=700&q=80" alt="Booth seating at ilios" loading="eager">
+        <img src="/assets/img/banner-reserve.webp" 
+             srcset="/assets/img/banner-reserve-800.webp 800w, /assets/img/banner-reserve.webp 1600w" 
+             sizes="100vw"
+             alt="Warm illuminated rooftop and seating at ilios" 
+             width="1600" height="700" 
+             loading="eager"
+             decoding="async">
       </div>
       <div class="page-banner-overlay"></div>
       <div class="page-banner-content">
@@ -349,34 +361,42 @@
                       <span class="chip-sub">Any available table</span>
                     </span>
                   </button>
-                  <button type="button" class="table-choice-chip" data-table="rooftop-corner" data-table-val="Rooftop Santorini Corner" role="radio" aria-checked="false">
-                    <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=120&q=80" alt="Rooftop corner" class="chip-thumb" loading="lazy">
+                  <button type="button" class="table-choice-chip" data-table="cocoon-pod" data-table-val="Cocoon Pod" role="radio" aria-checked="false">
+                    <img src="/assets/img/table-cocoon-pod.webp" alt="Cocoon Pod" class="chip-thumb" width="48" height="48" loading="lazy" decoding="async">
                     <span class="chip-info">
-                      <span class="chip-name">Rooftop Corner</span>
-                      <span class="chip-sub">2–4 guests · Photo spot</span>
+                      <span class="chip-name">Cocoon Pod</span>
+                      <span class="chip-sub">2–4 guests · Cosy &amp; private</span>
                     </span>
                   </button>
-                  <button type="button" class="table-choice-chip" data-table="arch-booth" data-table-val="The Arch Booth" role="radio" aria-checked="false">
-                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=120&q=80" alt="Arch booth" class="chip-thumb" loading="lazy">
+                  <button type="button" class="table-choice-chip" data-table="ring-daybed" data-table-val="The Ring Daybed" role="radio" aria-checked="false">
+                    <img src="/assets/img/table-ring-daybed.webp" alt="The Ring Daybed" class="chip-thumb" width="48" height="48" loading="lazy" decoding="async">
                     <span class="chip-info">
-                      <span class="chip-name">The Arch Booth</span>
+                      <span class="chip-name">The Ring Daybed</span>
                       <span class="chip-sub">4–6 guests · Cushioned</span>
                     </span>
                   </button>
-                  <button type="button" class="table-choice-chip" data-table="stage-side" data-table-val="Stage-Side Table" role="radio" aria-checked="false">
-                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=120&q=80" alt="Stage-side table" class="chip-thumb" loading="lazy">
+                  <button type="button" class="table-choice-chip" data-table="pink-shutter-terrace" data-table-val="Pink Shutter Terrace" role="radio" aria-checked="false">
+                    <img src="/assets/img/table-pink-shutter-terrace.webp" alt="Pink Shutter Terrace" class="chip-thumb" width="48" height="48" loading="lazy" decoding="async">
                     <span class="chip-info">
-                      <span class="chip-name">Stage-Side Table</span>
-                      <span class="chip-sub">6–10 guests · Live gigs</span>
+                      <span class="chip-name">Pink Shutter Terrace</span>
+                      <span class="chip-sub">2–8 guests · Bougainvillea</span>
+                    </span>
+                  </button>
+                  <button type="button" class="table-choice-chip" data-table="indoor-lantern-room" data-table-val="Indoor Lantern Room" role="radio" aria-checked="false">
+                    <img src="/assets/img/table-indoor-lantern-room.webp" alt="Indoor Lantern Room" class="chip-thumb" width="48" height="48" loading="lazy" decoding="async">
+                    <span class="chip-info">
+                      <span class="chip-name">Indoor Lantern Room</span>
+                      <span class="chip-sub">2–10 guests · Families</span>
                     </span>
                   </button>
                 </div>
                 <!-- Hidden synced select for form value -->
                 <select id="book-table-type" class="form-control" style="display:none;" aria-hidden="true">
                   <option value="No preference" selected>No preference</option>
-                  <option value="Rooftop Santorini Corner">Rooftop Santorini Corner</option>
-                  <option value="The Arch Booth">The Arch Booth</option>
-                  <option value="Stage-Side Table">Stage-Side Table</option>
+                  <option value="Cocoon Pod">Cocoon Pod</option>
+                  <option value="The Ring Daybed">The Ring Daybed</option>
+                  <option value="Pink Shutter Terrace">Pink Shutter Terrace</option>
+                  <option value="Indoor Lantern Room">Indoor Lantern Room</option>
                 </select>
               </div>
 
@@ -415,58 +435,77 @@
         </div>
 
         <div class="vip-tables-grid">
-          <!-- Rooftop Corner -->
+          <!-- Cocoon Pod -->
           <article class="table-card card-hover reveal">
             <div class="table-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80" alt="Rooftop corner table" loading="lazy">
+              <img src="/assets/img/table-cocoon-pod.webp" alt="Cocoon Pod on the rooftop" width="800" height="500" loading="lazy" decoding="async">
             </div>
             <div class="table-content">
               <span class="table-capacity">2–4 guests</span>
-              <h3 class="table-type-title">Rooftop Santorini Corner</h3>
-              <p class="table-desc">Open-air corner with the dome-and-arch photo angle. Made for dates.</p>
+              <h3 class="table-type-title">Cocoon Pod</h3>
+              <p class="table-desc">Sit inside a wicker cocoon on the rooftop. Cosy, private, made for dates.</p>
               <ul class="table-perks">
-                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Iconic photo angle</li>
-                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Open-air terrace breeze</li>
+                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Wicker cocoon privacy</li>
+                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Iconic date-night spot</li>
               </ul>
-              <button type="button" class="btn btn-outline-aegean" onclick="selectBookingTable('rooftop-corner')">
+              <button type="button" class="btn btn-outline-aegean" onclick="selectBookingTable('cocoon-pod')">
                 Select this table
               </button>
             </div>
           </article>
 
-          <!-- Arch Booth -->
+          <!-- The Ring Daybed -->
           <article class="table-card card-hover reveal">
             <div class="table-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80" alt="Arch booth seating" loading="lazy">
+              <img src="/assets/img/table-ring-daybed.webp" alt="The Ring Daybed seating" width="800" height="500" loading="lazy" decoding="async">
             </div>
             <div class="table-content">
               <span class="table-capacity">4–6 guests</span>
-              <h3 class="table-type-title">The Arch Booth</h3>
-              <p class="table-desc">Cushioned booth under the whitewashed arches. Best for friend groups.</p>
+              <h3 class="table-type-title">The Ring Daybed</h3>
+              <p class="table-desc">Cushioned round daybed under the wooden arch. Best for friend groups.</p>
               <ul class="table-perks">
-                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Cosy cushioned booth</li>
-                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Ambient arch lighting</li>
+                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Circular cushioned daybed</li>
+                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Wooden ring arch feature</li>
               </ul>
-              <button type="button" class="btn btn-outline-aegean" onclick="selectBookingTable('arch-booth')">
+              <button type="button" class="btn btn-outline-aegean" onclick="selectBookingTable('ring-daybed')">
                 Select this table
               </button>
             </div>
           </article>
 
-          <!-- Stage-Side Table -->
+          <!-- Pink Shutter Terrace -->
           <article class="table-card card-hover reveal">
             <div class="table-img-box img-frame">
-              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" alt="Stage-side table" loading="lazy">
+              <img src="/assets/img/table-pink-shutter-terrace.webp" alt="Pink Shutter Terrace" width="800" height="500" loading="lazy" decoding="async">
             </div>
             <div class="table-content">
-              <span class="table-capacity">6–10 guests</span>
-              <h3 class="table-type-title">Stage-Side Table</h3>
-              <p class="table-desc">Right by the stage on live nights. Book early on weekends.</p>
+              <span class="table-capacity">2–8 guests</span>
+              <h3 class="table-type-title">Pink Shutter Terrace</h3>
+              <p class="table-desc">Open-air tables by the pink shutters and bougainvillea.</p>
               <ul class="table-perks">
-                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Direct view of the stage</li>
-                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Best acoustics for gigs</li>
+                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Open-air terrace breeze</li>
+                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Bougainvillea &amp; shutters</li>
               </ul>
-              <button type="button" class="btn btn-outline-aegean" onclick="selectBookingTable('stage-side')">
+              <button type="button" class="btn btn-outline-aegean" onclick="selectBookingTable('pink-shutter-terrace')">
+                Select this table
+              </button>
+            </div>
+          </article>
+
+          <!-- Indoor Lantern Room -->
+          <article class="table-card card-hover reveal">
+            <div class="table-img-box img-frame">
+              <img src="/assets/img/table-indoor-lantern-room.webp" alt="Indoor Lantern Room" width="800" height="500" loading="lazy" decoding="async">
+            </div>
+            <div class="table-content">
+              <span class="table-capacity">2–10 guests</span>
+              <h3 class="table-type-title">Indoor Lantern Room</h3>
+              <p class="table-desc">Warm indoor tables under yellow wicker lanterns. Good for families and cooler nights.</p>
+              <ul class="table-perks">
+                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Yellow wicker lanterns</li>
+                <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Climate-controlled comfort</li>
+              </ul>
+              <button type="button" class="btn btn-outline-aegean" onclick="selectBookingTable('indoor-lantern-room')">
                 Select this table
               </button>
             </div>
