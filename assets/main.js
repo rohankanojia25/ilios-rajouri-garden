@@ -473,6 +473,7 @@
       var dateNumVal = evt.dateNum || (evt.dateStr ? evt.dateStr.split('/')[0] : '15');
       var monShort = evt.monthShort || 'NOV';
       var screenDisplayDate = evt.displayDate || (evt.dayName.substring(0, 3) + ', ' + dateNumVal + ' ' + monShort);
+      var shortTime = (evt.time || '').replace(/\s*onwards\s*/i, '').trim();
 
       html += '<article class="event-card reveal' + (evt.isTonight ? ' event-card--tonight' : '') + '">' +
                 '<span class="' + badgeClass + '">' + badgeText + '</span>' +
@@ -491,7 +492,7 @@
                     '<div class="event-time-row">' +
                       '<span class="event-display-date">' + screenDisplayDate + '</span>' +
                       '<span class="event-time-sep">·</span>' +
-                      '<span class="event-time-val">' + evt.time + '</span>' +
+                      '<span class="event-time-val">' + shortTime + '</span>' +
                     '</div>' +
                   '</div>' +
                 '</div>' +
@@ -844,8 +845,34 @@
   function initDateInputs() {
     var todayStr = getTodayISO();
     var dateInputs = document.querySelectorAll('input[type="date"]');
+    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    function updateDateDisplay(inp) {
+      var displayEl = inp.parentElement.querySelector('.chosen-date-display');
+      if (!displayEl) return;
+      if (!inp.value) {
+        displayEl.textContent = '';
+        return;
+      }
+      var parts = inp.value.split('-');
+      if (parts.length === 3) {
+        var y = parseInt(parts[0], 10);
+        var m = parseInt(parts[1], 10) - 1;
+        var d = parseInt(parts[2], 10);
+        var dateObj = new Date(y, m, d);
+        var dow = days[dateObj.getDay()];
+        var mon = months[m];
+        displayEl.textContent = dow + ', ' + d + ' ' + mon + ' ' + y;
+      }
+    }
+
     dateInputs.forEach(function (inp) {
       inp.min = todayStr;
+      inp.setAttribute('lang', 'en-IN');
+      inp.addEventListener('input', function () { updateDateDisplay(inp); });
+      inp.addEventListener('change', function () { updateDateDisplay(inp); });
+      updateDateDisplay(inp);
     });
   }
 

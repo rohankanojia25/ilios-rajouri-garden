@@ -634,7 +634,7 @@ input, select, textarea {
 
 .site-nav--solid .menu-bar,
 .site-nav.scrolled .menu-bar {
-  background-color: var(--aegean);
+  background-color: var(--ink);
 }
 
 .menu-toggle.active .menu-bar:nth-child(1) {
@@ -2514,10 +2514,12 @@ body.mobile-menu-open .mobile-bottom-bar {
     font-size: 18px !important;
   }
 
-  /* 3. STAT STRIP (2x2 grid, height <= 220px) */
+  /* 3. STAT STRIP */
   .stat-strip {
     padding: 24px 0 !important;
-    max-height: 220px !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
   .stat-grid {
     display: grid !important;
@@ -2538,31 +2540,43 @@ body.mobile-menu-open .mobile-bottom-bar {
     line-height: 1.3 !important;
   }
 
-  /* 4. SIGNATURE DISHES (Horizontal Swipe Row, height <= 560px) */
+  /* 4. SIGNATURE DISHES (Horizontal Swipe Row) */
   #dishes {
-    max-height: 560px !important;
-    overflow: hidden !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 44px 0 !important;
   }
   .dishes-grid {
     display: flex !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
     gap: 12px !important;
-    padding: 4px 20px 12px !important;
-    margin: 0 -20px !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    padding-inline: 20px !important;
+    scroll-padding-inline: 20px !important;
+    margin-inline: -20px !important;
     -webkit-overflow-scrolling: touch !important;
     scrollbar-width: none !important;
   }
   .dishes-grid::-webkit-scrollbar {
     display: none !important;
   }
+  .dishes-grid::after {
+    content: '' !important;
+    flex: 0 0 8px !important;
+    width: 8px !important;
+    display: block !important;
+  }
   .dishes-grid .dish-card {
-    flex: 0 0 78% !important;
-    width: 78% !important;
+    flex: 0 0 80% !important;
+    max-width: 80% !important;
+    width: 80% !important;
     scroll-snap-align: start !important;
     margin: 0 !important;
     display: flex !important;
     flex-direction: column !important;
+    height: auto !important;
   }
   .dish-img-box {
     aspect-ratio: 4 / 3 !important;
@@ -2579,9 +2593,9 @@ body.mobile-menu-open .mobile-bottom-bar {
   }
   .dish-header {
     display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 8px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
     margin-bottom: 4px !important;
   }
   .dish-title-wrap {
@@ -2589,13 +2603,17 @@ body.mobile-menu-open .mobile-bottom-bar {
     align-items: center !important;
     gap: 6px !important;
     min-width: 0 !important;
+    width: 100% !important;
   }
   .dish-title {
     font-size: 1.1rem !important;
     margin: 0 !important;
-    white-space: nowrap !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    line-height: 1.3 !important;
   }
   .dish-price {
     font-size: 1rem !important;
@@ -2619,9 +2637,12 @@ body.mobile-menu-open .mobile-bottom-bar {
     margin-top: 6px !important;
   }
 
-  /* 5. LIVE THIS WEEK (Compact List Rows <= 260px) */
+  /* 5. LIVE THIS WEEK */
   #live-music {
     padding: 44px 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
   #home-live-events,
   .live-events-grid {
@@ -2690,16 +2711,21 @@ body.mobile-menu-open .mobile-bottom-bar {
     display: flex !important;
     align-items: center !important;
     gap: 6px !important;
+    width: 100% !important;
   }
   .event-title {
     font-size: 14px !important;
     font-weight: 700 !important;
     color: var(--chalk) !important;
-    white-space: nowrap !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important;
     margin: 0 !important;
     font-family: var(--font-body) !important;
+    line-height: 1.25 !important;
+    flex: 1 !important;
   }
   .tonight-dot-badge {
     display: inline-flex !important;
@@ -2729,7 +2755,10 @@ body.mobile-menu-open .mobile-bottom-bar {
     margin-top: 2px !important;
   }
   .event-time-sep {
-    color: rgba(201, 161, 90, 0.5) !important;
+    display: none !important;
+  }
+  .event-display-date {
+    display: none !important;
   }
   .event-cta-wrap {
     flex-shrink: 0 !important;
@@ -2744,31 +2773,43 @@ body.mobile-menu-open .mobile-bottom-bar {
     border-radius: var(--radius-sm) !important;
   }
 
-  /* 6. PICK YOUR CORNER (Swipe Row <= 520px) */
+  /* 6. PICK YOUR CORNER (Swipe Row) */
   #tables {
-    max-height: 520px !important;
-    overflow: hidden !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 44px 0 !important;
   }
   .vip-tables-grid {
     display: flex !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
     gap: 12px !important;
-    padding: 4px 20px 12px !important;
-    margin: 0 -20px !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    padding-inline: 20px !important;
+    scroll-padding-inline: 20px !important;
+    margin-inline: -20px !important;
     -webkit-overflow-scrolling: touch !important;
     scrollbar-width: none !important;
   }
   .vip-tables-grid::-webkit-scrollbar {
     display: none !important;
   }
+  .vip-tables-grid::after {
+    content: '' !important;
+    flex: 0 0 8px !important;
+    width: 8px !important;
+    display: block !important;
+  }
   .vip-tables-grid .table-card {
-    flex: 0 0 78% !important;
-    width: 78% !important;
+    flex: 0 0 80% !important;
+    max-width: 80% !important;
+    width: 80% !important;
     scroll-snap-align: start !important;
     margin: 0 !important;
     display: flex !important;
     flex-direction: column !important;
+    height: auto !important;
   }
   .table-img-box {
     aspect-ratio: 16 / 10 !important;
@@ -2790,6 +2831,11 @@ body.mobile-menu-open .mobile-bottom-bar {
   .table-type-title {
     font-size: 1.15rem !important;
     margin-bottom: 4px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    white-space: normal !important;
   }
   .table-desc {
     display: -webkit-box !important;
@@ -2808,27 +2854,38 @@ body.mobile-menu-open .mobile-bottom-bar {
     font-size: 14px !important;
   }
 
-  /* 7. GALLERY STRIP (4-photo Swipe Row <= 420px) */
+  /* 7. GALLERY STRIP (4-photo Swipe Row) */
   #gallery-strip {
-    max-height: 420px !important;
-    overflow: hidden !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 44px 0 !important;
   }
   .gallery-strip-row {
     display: flex !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
     gap: 12px !important;
-    padding: 4px 20px 12px !important;
-    margin: 0 -20px !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    padding-inline: 20px !important;
+    scroll-padding-inline: 20px !important;
+    margin-inline: -20px !important;
     -webkit-overflow-scrolling: touch !important;
     scrollbar-width: none !important;
   }
   .gallery-strip-row::-webkit-scrollbar {
     display: none !important;
   }
+  .gallery-strip-row::after {
+    content: '' !important;
+    flex: 0 0 8px !important;
+    width: 8px !important;
+    display: block !important;
+  }
   .gallery-strip-row .gallery-item {
-    flex: 0 0 70% !important;
-    width: 70% !important;
+    flex: 0 0 80% !important;
+    max-width: 80% !important;
+    width: 80% !important;
     scroll-snap-align: start !important;
     aspect-ratio: 4 / 5 !important;
     height: auto !important;
@@ -2841,37 +2898,61 @@ body.mobile-menu-open .mobile-bottom-bar {
     object-fit: cover !important;
   }
 
-  /* 8. REVIEWS (Swipe Row <= 380px) */
+  /* 8. REVIEWS (Swipe Row) */
   #reviews {
-    max-height: 380px !important;
-    overflow: hidden !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 44px 0 !important;
+  }
+  .reviews-title-desktop {
+    display: none !important;
+  }
+  .reviews-title-mobile {
+    display: block !important;
+  }
+  .reviews-subtitle-mobile {
+    display: block !important;
+    font-size: 14px !important;
+    color: var(--text-muted) !important;
+    margin-top: 2px !important;
   }
   .reviews-swipe-row {
     display: flex !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
     gap: 12px !important;
-    padding: 4px 20px 12px !important;
-    margin: 0 -20px !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    padding-inline: 20px !important;
+    scroll-padding-inline: 20px !important;
+    margin-inline: -20px !important;
     -webkit-overflow-scrolling: touch !important;
     scrollbar-width: none !important;
   }
   .reviews-swipe-row::-webkit-scrollbar {
     display: none !important;
   }
+  .reviews-swipe-row::after {
+    content: '' !important;
+    flex: 0 0 8px !important;
+    width: 8px !important;
+    display: block !important;
+  }
   .reviews-swipe-row .review-card {
-    flex: 0 0 85% !important;
-    width: 85% !important;
+    flex: 0 0 80% !important;
+    max-width: 80% !important;
+    width: 80% !important;
     scroll-snap-align: start !important;
     margin: 0 !important;
     padding: 16px 14px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
+    height: auto !important;
   }
   .review-text {
     display: -webkit-box !important;
-    -webkit-line-clamp: 4 !important;
+    -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
     font-size: 14px !important;
@@ -2895,10 +2976,12 @@ body.mobile-menu-open .mobile-bottom-bar {
     margin-top: 10px !important;
   }
 
-  /* 9. PARTY BANNER (<= 300px) */
+  /* 9. PARTY BANNER */
   #parties-teaser {
-    max-height: 300px !important;
-    padding: 40px 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 44px 0 !important;
   }
   .party-teaser-btn {
     width: 100% !important;
@@ -2911,13 +2994,20 @@ body.mobile-menu-open .mobile-bottom-bar {
     justify-content: center !important;
   }
 
-  /* 10. VISIT / FIND US (<= 320px) */
+  /* 10. VISIT / FIND US */
   #visit-teaser {
-    max-height: 320px !important;
-    padding: 40px 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 44px 0 0 0 !important;
+    margin-bottom: 48px !important;
   }
   .visit-card {
     padding: 20px 16px !important;
+    margin: 0 auto !important;
+    position: static !important;
+    transform: none !important;
+    box-sizing: border-box !important;
   }
   .visit-address {
     font-size: 14px !important;
@@ -2943,7 +3033,7 @@ body.mobile-menu-open .mobile-bottom-bar {
   .visit-action-buttons {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
+    gap: 10px !important;
     width: 100% !important;
   }
   .visit-btn-dir, .visit-btn-call {
@@ -2955,6 +3045,7 @@ body.mobile-menu-open .mobile-bottom-bar {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    white-space: nowrap !important;
   }
 
   /* 11. CLOSING CTA BAND (Hidden on Home mobile) */
@@ -2962,10 +3053,15 @@ body.mobile-menu-open .mobile-bottom-bar {
     display: none !important;
   }
 
-  /* 12. FOOTER (<= 520px) */
+  /* 12. FOOTER (Dark ink down to bottom, full legibility, >=44px touch targets) */
   .site-footer {
-    padding: 36px 0 20px !important;
-    max-height: 520px !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background-color: var(--ink) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    padding-top: 40px !important;
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
   }
   .footer-top-grid {
     display: flex !important;
@@ -2975,11 +3071,13 @@ body.mobile-menu-open .mobile-bottom-bar {
   .footer-brand-title {
     font-size: 1.5rem !important;
     margin-bottom: 2px !important;
+    color: var(--chalk) !important;
   }
   .footer-desc {
     font-size: 13px !important;
     line-height: 1.4 !important;
     margin-bottom: 8px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
   }
   .footer-social-row {
     gap: 8px !important;
@@ -2988,31 +3086,55 @@ body.mobile-menu-open .mobile-bottom-bar {
   .footer-explore-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 6px 10px !important;
+    gap: 4px 10px !important;
     list-style: none !important;
     padding: 0 !important;
     margin: 0 !important;
   }
-  .footer-explore-grid a {
+  .site-footer a,
+  .footer-explore-grid a,
+  .footer-links-list a {
     display: flex !important;
     align-items: center !important;
     min-height: 44px !important;
     font-size: 14px !important;
-    color: var(--text-light-muted) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-decoration: none !important;
+  }
+  .site-footer a:hover,
+  .footer-explore-grid a:hover,
+  .footer-links-list a:hover {
+    color: var(--sun) !important;
+  }
+  .footer-links-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+  }
+  .footer-links-list li {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
   }
   .footer-contact-compact {
     font-size: 13px !important;
     line-height: 1.4 !important;
-    color: var(--text-light-muted) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
   }
   .footer-bottom {
     padding-top: 14px !important;
     font-size: 12px !important;
     gap: 4px !important;
     text-align: center !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
   }
   .fssai-box {
     font-size: 12px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
   }
 
   /* 13. INNER PAGES BANNER (32svh, min 220px, H1 + breadcrumb only) */
@@ -3039,7 +3161,31 @@ body.mobile-menu-open .mobile-bottom-bar {
   }
 
   /* 14. FORMS (/reserve and /parties) */
+  .form-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    padding: 1.5rem 1rem !important;
+  }
+  .booking-form-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .form-group {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 12px !important;
+  }
   .form-control {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
     min-height: 48px !important;
     height: 48px !important;
     font-size: 16px !important;
@@ -3052,13 +3198,19 @@ body.mobile-menu-open .mobile-bottom-bar {
     margin-bottom: 4px !important;
     display: block !important;
   }
-  .form-group {
-    margin-bottom: 12px !important;
-  }
   .form-row-datetime {
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
     gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .chosen-date-display {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--dome) !important;
+    margin-top: 4px !important;
+    display: block !important;
   }
   .form-submit-btn {
     width: 100% !important;
@@ -3076,11 +3228,16 @@ body.mobile-menu-open .mobile-bottom-bar {
   /* Choice Chips inside Form (/reserve) */
   .table-choice-chips {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 8px !important;
     margin-top: 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .table-choice-chip {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
     min-height: 64px !important;
     padding: 6px 8px !important;
     border: 1.5px solid var(--border-subtle) !important;
@@ -3098,8 +3255,8 @@ body.mobile-menu-open .mobile-bottom-bar {
     box-shadow: 0 2px 8px rgba(201, 161, 90, 0.2) !important;
   }
   .chip-thumb {
-    width: 56px !important;
-    height: 56px !important;
+    width: 48px !important;
+    height: 48px !important;
     border-radius: 6px !important;
     object-fit: cover !important;
     flex-shrink: 0 !important;
@@ -3109,28 +3266,30 @@ body.mobile-menu-open .mobile-bottom-bar {
     align-items: center !important;
     justify-content: center !important;
     background: rgba(201, 161, 90, 0.15) !important;
-    font-size: 24px !important;
+    font-size: 22px !important;
   }
   .chip-info {
     min-width: 0 !important;
-    flex: 1 !important;
+    flex: 1 1 0% !important;
+    overflow: hidden !important;
   }
   .chip-name {
     display: block !important;
     font-size: 13px !important;
     font-weight: 700 !important;
     color: var(--aegean) !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    line-height: 1.25 !important;
   }
   .chip-sub {
     display: block !important;
     font-size: 11px !important;
     color: var(--text-muted) !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    line-height: 1.2 !important;
+    margin-top: 2px !important;
   }
 
   /* Parties Quick Facts swipe pills (/parties) */
@@ -3237,7 +3396,7 @@ body.mobile-menu-open .mobile-bottom-bar {
 @media (min-width: 375px) and (max-width: 767px) {
   .form-row-datetime {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 10px !important;
   }
 }
